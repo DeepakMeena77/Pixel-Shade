@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Share2, MessageSquare, Rocket, ArrowRight, Zap, TrendingUp, Cpu, Maximize } from 'lucide-react'
+import { Share2, MessageSquare, Rocket, ArrowRight, Zap, TrendingUp, Cpu, Maximize, Instagram } from 'lucide-react'
 
 const Home = () => {
     return (
@@ -31,6 +31,15 @@ const Home = () => {
                             </a>
                             <a href="#process" className="w-full sm:w-auto px-8 py-4 bg-transparent text-text-dark border-2 border-text-dark font-bold rounded-full hover:bg-gray-100 transition-colors flex items-center justify-center gap-2">
                                 Our Process
+                            </a>
+                            <a 
+                                href="https://www.instagram.com/pixelshade.co?igsh=MW44dGd3YTUxZTV3dQ==" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white font-bold rounded-full hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+                            >
+                                <Instagram size={20} />
+                                Instagram
                             </a>
                         </div>
                     </motion.div>
@@ -156,6 +165,8 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+
 
             {/* CTA Section */}
             <section className="px-4 sm:px-6 lg:px-8 py-24 bg-white">

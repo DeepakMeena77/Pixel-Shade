@@ -8,29 +8,99 @@ const Services = () => {
             id: "invitations",
             icon: <Diamond size={32} className="text-brand-orange" />,
             title: "Custom Invitation Cards",
-            description: "Elevate your special moments. We design highly personalized, elegant, and modern invitation cards for weddings, corporate events, and exclusive gatherings. Every design is crafted to leave a lasting impression before the event even begins.",
-            features: ["Premium Typography", "Custom Illustrations", "Print-Ready & Digital Formats"]
+            description: (
+                <>
+                    💌 Planning a special event and need the perfect invitation?
+                    <br /><br />
+                    Make your first impression unforgettable with our beautifully crafted digital and print-ready cards. ✨
+                    <br /><br />
+                    At PixelShade, we design elegant invitations that match your vibe and theme perfectly! 🎨
+                    <br /><br />
+                    <span className="font-bold text-brand-orange text-lg">💰 Custom Wedding Cards: ₹600</span><br />
+                    <span className="font-bold text-brand-orange text-lg">🎬 Video Invitations: ₹700</span>
+                    <br /><br />
+                    Reach out today to make your event truly memorable!
+                </>
+            ),
+            features: [
+                "✨ Premium Typography & Layout",
+                "🎨 Custom Illustrations",
+                "🖨️ Print-Ready & Digital Formats",
+                "📹 Animated/Video Invites Available"
+            ]
         },
         {
             id: "social-media",
             icon: <MessageSquare size={32} className="text-brand-green" />,
             title: "Social Media Promo & Management",
-            description: "Stop scrolling, start engaging. We engineer high-impact social media promotional material and manage campaigns that turn followers into brand advocates. Our strategies are aggressively focused on visual storytelling and community engagement.",
-            features: ["Content Calendars", "Viral-Engineered Graphics", "Platform-Specific Sizing"]
+            description: (
+                <>
+                    🚀 Want to grow your business quickly on social media?
+                    <br /><br />
+                    Finding it difficult to create daily posts, increase your followers, and get more reach? 🤔
+                    <br /><br />
+                    With the PixelShade Social Media Management Package, we will build a professional online presence for your brand! 📈
+                    <br /><br />
+                    <span className="font-bold text-brand-orange text-xl">💰 Only ₹4,999 / Month</span>
+                    <br /><br />
+                    Start right now to take your business to the next level!
+                </>
+            ),
+            features: [
+                "✨ 30 Posts Every Month",
+                "📊 Fast Growth Strategy",
+                "🔥 Trending Content",
+                "📱 Multi-Platform Posting",
+                "💬 24/7 Support"
+            ]
         },
         {
             id: "logos",
             icon: <Layers size={32} className="text-brand-orange" />,
             title: "Logo Designing",
-            description: "Your brand's visual cornerstone. We specialize in designing iconic, minimal, yet powerful logos that instantly communicate your brand's ethos. No generic templates—pure custom identity systems.",
-            features: ["Vector Precision", "Color Psychology", "Scalable Systems"]
+            description: (
+                <>
+                    🎯 Start your brand journey with an iconic identity!
+                    <br /><br />
+                    Want a logo that makes your business look premium and trustworthy? 💎
+                    <br /><br />
+                    We specialize in creating powerful, memorable, and custom logos tailored to your brand's unique story. 🖌️
+                    <br /><br />
+                    <span className="font-bold text-brand-orange text-xl">💰 Logos: ₹500</span>
+                    <br /><br />
+                    Let's design a brand identity you'll be proud to show off!
+                </>
+            ),
+            features: [
+                "✨ Custom, Unique Designs",
+                "📐 High-Resolution Vector Files",
+                "🎨 Strategic Color Psychology",
+                "📱 Scalable for Web & Print"
+            ]
         },
         {
             id: "graphic-design",
             icon: <Paintbrush size={32} className="text-brand-green" />,
             title: "General Graphic Design",
-            description: "From explosive ad creatives to clean corporate brochures, we handle all facets of digital and print design. Maintaining strict brand consistency across every single touchpoint.",
-            features: ["Marketing Collateral", "Ad Creatives", "Merchandise Design"]
+            description: (
+                <>
+                    🎨 Need professional graphics for your business or marketing?
+                    <br /><br />
+                    From promotional materials to business stationery, we create high-converting designs that grab attention! 🔥
+                    <br /><br />
+                    <span className="font-bold text-brand-orange text-lg">💰 Flyers & Brochures: ₹350</span><br />
+                    <span className="font-bold text-brand-orange text-lg">💳 Business/Visiting Cards: ₹500</span><br />
+                    <span className="font-bold text-brand-orange text-lg">✨ Canva Pro (1 Year) - ₹199</span>
+                    <br /><br />
+                    Upgrade your visual game today!
+                </>
+            ),
+            features: [
+                "✨ Eye-Catching Flyers & Posters",
+                "🏢 Professional Business Cards",
+                "📱 Clean UI/Ad Creatives",
+                "👑 Premium Canva Access"
+            ]
         }
     ]
 
