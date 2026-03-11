@@ -49,10 +49,6 @@ const Home = () => {
             {/* Services Summary Section */}
             <section className="px-4 sm:px-6 lg:px-8 py-24 bg-white border-y border-gray-100">
                 <div className="max-w-7xl mx-auto">
-                    <div className="flex border-b border-gray-200 mb-16 pb-4 overflow-x-auto no-scrollbar">
-                        <span className="text-brand-orange font-bold uppercase tracking-wider px-6 border-b-2 border-brand-orange whitespace-nowrap">Graphic Design</span>
-                        <span className="text-gray-400 font-bold uppercase tracking-wider px-6 whitespace-nowrap hover:text-gray-700 cursor-pointer transition-colors">Social Media Marketing</span>
-                    </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {/* Card 1 */}
