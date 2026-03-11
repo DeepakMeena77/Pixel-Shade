@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-orange: #f05a22; /* Main Brand Orange */
+  --color-brand-green: #4ade80; /* Neon Brand Green */
+  --color-bg-light: #fdfbf9; /* Soft off-white */
+  --color-bg-dark: #1c1917; /* Dark charcoal */
+  --color-text-dark: #292524;
+  --color-text-light: #fafaf9;
+}
+
+@layer base {
+  body {
+    background-color: var(--theme-color-bg-light);
+    color: var(--theme-color-text-dark);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Explicitly enforcing NO drop-shadows as requested */
+  * {
+    box-shadow: none !important;
+  }
+}
