@@ -159,7 +159,7 @@ export default function ReviewSection() {
 
           {/* Right: Display Reviews */}
           <div className="w-full md:w-2/3">
-            <h2 className="text-3xl md:text-5xl font-bold mb-8 font-display">Client <span className="text-brand-green italic">Reviews</span></h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-8 font-display"><span className="text-brand-green italic">Client Reviews</span></h2>
             
             {loading ? (
               <div className="flex justify-center py-12">
