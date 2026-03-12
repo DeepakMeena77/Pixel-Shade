@@ -16,8 +16,8 @@ const Services = () => {
                     <br /><br />
                     At PixelShade, we design elegant invitations that match your vibe and theme perfectly! 🎨
                     <br /><br />
-                    <span className="font-bold text-brand-orange text-lg">💰 Custom Wedding Cards: ₹600</span><br />
-                    <span className="font-bold text-brand-orange text-lg">🎬 Video Invitations: ₹700</span>
+                    <span className="font-bold text-brand-orange text-lg">💰 Custom Wedding Cards: Starts from ₹600</span><br />
+                    <span className="font-bold text-brand-orange text-lg">🎬 Video Invitations: Starts from ₹700</span>
                     <br /><br />
                     Reach out today to make your event truly memorable!
                 </>
@@ -41,7 +41,7 @@ const Services = () => {
                     <br /><br />
                     With the PixelShade Social Media Management Package, we will build a professional online presence for your brand! 📈
                     <br /><br />
-                    <span className="font-bold text-brand-orange text-xl">💰 Only ₹4,999 / Month</span>
+                    <span className="font-bold text-brand-orange text-xl">💰 Starts from ₹4,999 / Month</span>
                     <br /><br />
                     Start right now to take your business to the next level!
                 </>
@@ -66,7 +66,7 @@ const Services = () => {
                     <br /><br />
                     We specialize in creating powerful, memorable, and custom logos tailored to your brand's unique story. 🖌️
                     <br /><br />
-                    <span className="font-bold text-brand-orange text-xl">💰 Logos: ₹500</span>
+                    <span className="font-bold text-brand-orange text-xl">💰 Logos: Starts from ₹500</span>
                     <br /><br />
                     Let's design a brand identity you'll be proud to show off!
                 </>
@@ -88,9 +88,9 @@ const Services = () => {
                     <br /><br />
                     From promotional materials to business stationery, we create high-converting designs that grab attention! 🔥
                     <br /><br />
-                    <span className="font-bold text-brand-orange text-lg">💰 Flyers & Brochures: ₹350</span><br />
-                    <span className="font-bold text-brand-orange text-lg">💳 Business/Visiting Cards: ₹500</span><br />
-                    <span className="font-bold text-brand-orange text-lg">✨ Canva Pro (1 Year) - ₹199</span>
+                    <span className="font-bold text-brand-orange text-lg">💰 Flyers & Brochures: Starts from ₹350</span><br />
+                    <span className="font-bold text-brand-orange text-lg">💳 Business/Visiting Cards: Starts from ₹500</span><br />
+                    <span className="font-bold text-brand-orange text-lg">✨ Canva Pro (1 Year) - Starts from ₹199</span>
                     <br /><br />
                     Upgrade your visual game today!
                 </>
