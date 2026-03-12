@@ -58,9 +58,14 @@ const Portfolio = () => {
                             A curated look into our design vault. We let the visuals do the talking.
                         </p>
                     </div>
-                    <p className="text-sm font-bold uppercase tracking-widest text-brand-orange pb-4 border-b-2 border-brand-orange inline-block">
+                    <a
+                        href="https://drive.google.com/drive/folders/1PELCDpRUhLuAzqhFOVgpXkxbuv7xtq6F"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-bold uppercase tracking-widest text-brand-orange pb-4 border-b-2 border-brand-orange inline-block hover:text-orange-600 transition-colors duration-200"
+                    >
                         View All Projects
-                    </p>
+                    </a>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
