@@ -6,6 +6,7 @@ import Services from './pages/Services'
 import Portfolio from './pages/Portfolio'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import ApproveReview from './pages/ApproveReview'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="portfolio" element={<Portfolio />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="approve" element={<ApproveReview />} />
         </Route>
       </Routes>
     </BrowserRouter>

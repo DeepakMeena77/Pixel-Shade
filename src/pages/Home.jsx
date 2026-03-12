@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Share2, MessageSquare, Rocket, ArrowRight, Zap, TrendingUp, Cpu, Maximize, Instagram } from 'lucide-react'
+import ReviewSection from '../components/ReviewSection'
 
 const Home = () => {
     return (
@@ -163,6 +164,9 @@ const Home = () => {
             </section>
 
 
+
+            {/* Review Section */}
+            <ReviewSection />
 
             {/* CTA Section */}
             <section className="px-4 sm:px-6 lg:px-8 py-24 bg-white">
