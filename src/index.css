@@ -11,8 +11,8 @@
 
 @layer base {
   body {
-    background-color: var(--theme-color-bg-light);
-    color: var(--theme-color-text-dark);
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
