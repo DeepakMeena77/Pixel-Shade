@@ -7,6 +7,7 @@ import Portfolio from './pages/Portfolio'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import ApproveReview from './pages/ApproveReview'
+import AdminPanel from './pages/AdminPanel'
 
 function App() {
   return (
@@ -18,8 +19,9 @@ function App() {
           <Route path="portfolio" element={<Portfolio />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="approve" element={<ApproveReview />} />
         </Route>
+        <Route path="/approve" element={<ApproveReview />} />
+        <Route path="/admin" element={<AdminPanel />} />
       </Routes>
     </BrowserRouter>
   )
