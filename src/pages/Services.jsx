@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Paintbrush, MessageSquare, Diamond, Layers, Star, Send, CheckCircle, ChevronDown, Image as ImageIcon, X, ZoomIn, TrendingUp, Target, Users, BarChart2, Video, FileText, Headphones, Calendar, Search, Gift, Clock, Zap, Award, Shield, ArrowRight } from 'lucide-react'
+import { Paintbrush, Diamond, Layers, Star, Send, CheckCircle, ChevronDown, Image as ImageIcon, X, ZoomIn, TrendingUp, Target, Users, BarChart2, Video, FileText, Headphones, Calendar, Search, Gift, Clock, Zap, Award, Shield, ArrowRight } from 'lucide-react'
 import { supabase } from '../config/supabase'
 import emailjs from '@emailjs/browser'
 
@@ -423,34 +423,6 @@ const Services = () => {
     const [openReviews, setOpenReviews] = useState(null)
 
     const servicesList = [
-        {
-            id: "social-media",
-            icon: <MessageSquare size={28} className="text-brand-green" />,
-            badge: "Most Popular",
-            title: "Social Media Promo & Management",
-            tagline: "Grow your brand presence across every platform.",
-            description: (
-                <>
-                    🚀 Want to grow your business quickly on social media?
-                    <br /><br />
-                    Finding it difficult to create daily posts, increase your followers, and get more reach? 🤔
-                    <br /><br />
-                    With the PixelShade Social Media Management Package, we will build a professional online presence for your brand! 📈
-                    <br /><br />
-                    <span className="font-bold text-brand-orange text-xl">💰 Starts from ₹4,999 / Month</span>
-                    <br /><br />
-                    Start right now to take your business to the next level!
-                </>
-            ),
-            pricing: "Starts from ₹4,999 / Month",
-            features: [
-                "✨ 30 Posts Every Month",
-                "📊 Fast Growth Strategy",
-                "🔥 Trending Content",
-                "📱 Multi-Platform Posting",
-                "💬 24/7 Support"
-            ]
-        },
         {
             id: "logos",
             icon: <Layers size={28} className="text-brand-orange" />,
