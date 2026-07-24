@@ -10,8 +10,8 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-20">
                     <div className="flex-shrink-0 flex items-center">
-                        <img src="/logo.jpg.png" alt="Pixel Shade Logo" className="h-12 w-auto object-contain rounded-full border-2 border-transparent" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
-                        <span className="ml-3 text-2xl font-bold tracking-tighter text-text-dark">
+                        <img src="/logo.jpg.png" alt="Pixel Shade Logo" className="h-9 md:h-12 w-auto object-contain rounded-full border-2 border-transparent" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
+                        <span className="ml-2 md:ml-3 text-lg md:text-2xl font-bold tracking-tighter text-text-dark">
                             PIXEL<span className="text-brand-orange">SHADE</span>
                         </span>
                     </div>
@@ -30,8 +30,8 @@ const Navbar = () => {
 
                     {/* Mobile Menu Button */}
                     <div className="md:hidden flex items-center">
-                        <button onClick={toggleMenu} className="text-text-dark hover:text-brand-orange transition-colors">
-                            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                        <button onClick={toggleMenu} className="p-2 text-text-dark hover:text-brand-orange transition-colors rounded-lg hover:bg-gray-100">
+                            {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
                         </button>
                     </div>
                 </div>

@@ -126,19 +126,19 @@ const Portfolio = () => {
     ]
 
     return (
-        <div className="bg-bg-light min-h-screen py-24">
+        <div className="bg-bg-light min-h-screen py-20 md:py-24">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 md:mb-20 gap-6">
                     <div className="max-w-2xl">
                         <motion.h1
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
-                            className="text-5xl md:text-7xl font-extrabold text-text-dark mb-6 leading-none"
+                            className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-text-dark mb-4 leading-none"
                         >
                             Selected <br /><span className="text-brand-green">Works</span>
                         </motion.h1>
-                        <p className="text-xl text-gray-600">
+                        <p className="text-base md:text-xl text-gray-600">
                             A curated look into our design vault. We let the visuals do the talking.
                         </p>
                     </div>
@@ -152,7 +152,7 @@ const Portfolio = () => {
                     </a>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10">
                     {works.map((work, index) => (
                         <motion.div
                             key={work.image}
@@ -178,11 +178,11 @@ const Portfolio = () => {
                             </div>
 
                             <div>
-                                <div className="flex justify-between items-center mb-2">
-                                    <h3 className="text-2xl font-bold">{work.title}</h3>
-                                    <span className="text-sm font-bold text-brand-orange uppercase tracking-wider">{work.category}</span>
+                                <div className="flex flex-wrap justify-between items-center gap-2 mb-2">
+                                    <h3 className="text-xl md:text-2xl font-bold">{work.title}</h3>
+                                    <span className="text-xs md:text-sm font-bold text-brand-orange uppercase tracking-wider">{work.category}</span>
                                 </div>
-                                <p className="text-gray-600 leading-relaxed">
+                                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                                     {work.description}
                                 </p>
                             </div>

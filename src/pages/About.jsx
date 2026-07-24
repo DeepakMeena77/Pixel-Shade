@@ -4,17 +4,17 @@ import { Star, CheckCircle, BarChart3, TrendingUp, Quote } from 'lucide-react'
 
 const About = () => {
     return (
-        <div className="bg-bg-light min-h-screen py-24">
+        <div className="bg-bg-light min-h-screen py-20 md:py-24">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         className="order-2 lg:order-1"
                     >
-                        <h1 className="text-5xl md:text-6xl font-extrabold text-text-dark mb-6">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-text-dark mb-6">
                             The Mind Behind <br />
                             <span className="text-brand-orange">Pixel Shade</span>
                         </h1>
@@ -69,9 +69,9 @@ const About = () => {
                 </div>
 
                 {/* Client Success Stories & Proofs Section */}
-                <section className="mt-32 max-w-7xl mx-auto border-t-2 border-gray-100 pt-24">
+                <section className="mt-20 md:mt-32 max-w-7xl mx-auto border-t-2 border-gray-100 pt-16 md:pt-24">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-extrabold text-text-dark mb-4">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-text-dark mb-4">
                             Don't Just Take Our <span className="text-brand-orange">Word For It.</span>
                         </h2>
                         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -79,7 +79,7 @@ const About = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10">
                         
                         {/* Social Media Proof - DM Style */}
                         <motion.div whileHover={{ scale: 1.02 }} className="bg-white p-8 rounded-[2.5rem] border-2 border-gray-100 shadow-sm flex flex-col pt-10">

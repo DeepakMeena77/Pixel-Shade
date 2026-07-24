@@ -33,7 +33,7 @@ const Contact = () => {
     }
 
     return (
-        <div className="bg-bg-light min-h-screen py-24">
+        <div className="bg-bg-light min-h-screen py-20 md:py-24">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -45,11 +45,11 @@ const Contact = () => {
                         <span className="inline-block py-1 px-4 mb-6 text-sm font-bold tracking-widest text-brand-orange border-2 border-brand-orange uppercase rounded-full">
                             Let's Talk
                         </span>
-                        <h1 className="text-5xl md:text-7xl font-extrabold text-text-dark mb-6 leading-none">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-text-dark mb-6 leading-none">
                             Initiate Your <br />
                             Project.
                         </h1>
-                        <p className="text-xl text-gray-600 mb-12 max-w-lg">
+                        <p className="text-base md:text-xl text-gray-600 mb-10 max-w-lg">
                             Ready to upgrade your visual identity? Drop us a line with your project details and we will get back to you within 24 hours.
                         </p>
 

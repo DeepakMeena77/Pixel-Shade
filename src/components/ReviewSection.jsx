@@ -95,10 +95,10 @@ export default function ReviewSection() {
     return (
       <section className="py-20 bg-bg-dark text-white scroll-mt-24" id="reviews">
         <div className="container mx-auto px-4 max-w-6xl">
-        <div className="flex flex-col md:flex-row gap-12">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-12">
           
           {/* Left: Leave a review form */}
-          <div className="w-full md:w-1/3 bg-gray-900 border border-gray-800 p-8 rounded-2xl shadow-xl">
+          <div className="w-full md:w-1/3 bg-gray-900 border border-gray-800 p-6 md:p-8 rounded-2xl shadow-xl">
             <h3 className="text-2xl font-bold mb-6 font-display">Leave a Review</h3>
             
             {successMsg ? (
@@ -167,7 +167,7 @@ export default function ReviewSection() {
 
           {/* Right: Display Reviews */}
           <div className="w-full md:w-2/3">
-            <h2 className="text-3xl md:text-5xl font-bold mb-8 font-display"><span className="text-brand-green italic">Client Reviews</span></h2>
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 md:mb-8 font-display"><span className="text-brand-green italic">Client Reviews</span></h2>
             
             {loading ? (
               <div className="flex justify-center py-12">

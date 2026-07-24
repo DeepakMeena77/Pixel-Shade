@@ -8,7 +8,7 @@ const Home = () => {
         <div className="flex flex-col min-h-screen">
 
             {/* Hero Section */}
-            <section className="relative px-4 sm:px-6 lg:px-8 py-24 md:py-32 lg:py-40 bg-bg-light overflow-hidden">
+            <section className="relative px-4 sm:px-6 lg:px-8 py-20 md:py-32 lg:py-40 bg-bg-light overflow-hidden">
                 <div className="max-w-4xl mx-auto text-center relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -18,29 +18,62 @@ const Home = () => {
                         <span className="inline-block py-1 px-4 mb-6 text-xs md:text-sm font-bold tracking-widest text-brand-green border border-brand-green uppercase rounded-full">
                             Future-Proof Design
                         </span>
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-text-dark leading-tight mb-8">
+                        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-text-dark leading-tight mb-6">
                             Elevate Your <br />
                             <span className="text-brand-orange">Digital Presence</span>
                         </h1>
-                        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed md:leading-relaxed">
+                        <p className="text-base md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
                             We blend futuristic aesthetics with high-energy marketing strategies to make your brand impossible to ignore.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <a href="/services" className="w-full sm:w-auto px-8 py-4 bg-brand-orange text-white font-bold rounded-full hover:bg-orange-600 transition-colors flex items-center justify-center gap-2">
+                        {/* Primary action buttons */}
+                        <div className="flex flex-wrap items-center justify-center gap-3 mb-4">
+                            <a href="/services" className="px-7 py-3.5 bg-brand-orange text-white font-bold rounded-full hover:bg-orange-600 transition-colors text-sm md:text-base">
                                 Explore Services
                             </a>
-                            <a href="#process" className="w-full sm:w-auto px-8 py-4 bg-transparent text-text-dark border-2 border-text-dark font-bold rounded-full hover:bg-gray-100 transition-colors flex items-center justify-center gap-2">
+                            <a href="#process" className="px-7 py-3.5 bg-transparent text-text-dark border-2 border-text-dark font-bold rounded-full hover:bg-gray-100 transition-colors text-sm md:text-base">
                                 Our Process
                             </a>
-                            <a 
-                                href="https://www.instagram.com/pixelshade.co?igsh=MW44dGd3YTUxZTV3dQ==" 
-                                target="_blank" 
+                            <a
+                                href="https://www.instagram.com/pixelshade.co?igsh=MW44dGd3YTUxZTV3dQ=="
+                                target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white font-bold rounded-full hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+                                className="px-7 py-3.5 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white font-bold rounded-full hover:opacity-90 transition-opacity flex items-center gap-2 text-sm md:text-base"
                             >
-                                <Instagram size={20} />
+                                <Instagram size={18} />
                                 Instagram
+                            </a>
+                        </div>
+
+                        {/* Social icon buttons */}
+                        <div className="flex items-center justify-center gap-3 mt-2">
+                            {/* Gmail Icon Button */}
+                            <a
+                                href="mailto:pixelshade.co@gmail.com"
+                                title="Email us at pixelshade.co@gmail.com"
+                                className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-full bg-white border-2 border-gray-200 hover:border-red-400 hover:shadow-lg hover:scale-110 transition-all duration-200"
+                            >
+                                {/* Official Gmail icon */}
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24" height="24">
+                                    <path fill="#4caf50" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.657,0,3-1.343,3-3V16.2z"/>
+                                    <path fill="#1e88e5" d="M3,16.2l3.614,1.71L13,23.7V40H6c-1.657,0-3-1.343-3-3V16.2z"/>
+                                    <polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"/>
+                                    <path fill="#c62828" d="M3,12.298V16.2l10,7.5V11.2L9.876,8.859C9.132,8.301,8.228,8,7.298,8h0C4.924,8,3,9.924,3,12.298z"/>
+                                    <path fill="#fbc02d" d="M45,12.298V16.2l-10,7.5V11.2l3.124-2.341C38.868,8.301,39.772,8,40.702,8h0 C43.076,8,45,9.924,45,12.298z"/>
+                                </svg>
+                            </a>
+
+                            {/* Facebook Icon Button */}
+                            <a
+                                href="https://www.facebook.com/share/1BprmjqVpd/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="Follow us on Facebook"
+                                className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-full bg-[#1877F2] hover:bg-[#0d6edc] hover:shadow-lg hover:scale-110 transition-all duration-200"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white">
+                                    <path d="M24 12.073C24 5.406 18.627 0 12 0S0 5.406 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.885v2.27h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+                                </svg>
                             </a>
                         </div>
                     </motion.div>
@@ -48,64 +81,63 @@ const Home = () => {
             </section>
 
             {/* Services Summary Section */}
-            <section className="px-4 sm:px-6 lg:px-8 py-24 bg-white border-y border-gray-100">
+            <section className="px-4 sm:px-6 lg:px-8 py-16 md:py-24 bg-white border-y border-gray-100">
                 <div className="max-w-7xl mx-auto">
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                         {/* Card 1 */}
                         <motion.div
                             whileHover={{ scale: 1.02 }}
-                            className="p-8 border-2 border-gray-100 rounded-2xl bg-bg-light transition-all"
+                            className="p-6 md:p-8 border-2 border-gray-100 rounded-2xl bg-bg-light transition-all"
                         >
                             <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center mb-6 text-brand-orange">
                                 <Share2 size={24} />
                             </div>
-                            <h3 className="text-2xl font-bold mb-4">Futuristic Branding</h3>
-                            <p className="text-gray-600 mb-8 leading-relaxed">
+                            <h3 className="text-xl md:text-2xl font-bold mb-4">Futuristic Branding</h3>
+                            <p className="text-gray-600 mb-6 leading-relaxed text-sm md:text-base">
                                 Identity systems built for the next generation of digital platforms and metaverses.
                             </p>
                             <ul className="space-y-3">
-                                <li className="flex items-center gap-3 text-sm font-medium"><div className="w-5 h-5 rounded-full bg-green-100 text-brand-green flex items-center justify-center"><Zap size={12} /></div> Detailed Logo Reviews</li>
-                                <li className="flex items-center gap-3 text-sm font-medium"><div className="w-5 h-5 rounded-full bg-green-100 text-brand-green flex items-center justify-center"><Zap size={12} /></div> Cyberpunk/Print Style</li>
-                                <li className="flex items-center gap-3 text-sm font-medium"><div className="w-5 h-5 rounded-full bg-green-100 text-brand-green flex items-center justify-center"><Zap size={12} /></div> Brand Guidelines</li>
+                                <li className="flex items-center gap-3 text-sm font-medium"><div className="w-5 h-5 rounded-full bg-green-100 text-brand-green flex items-center justify-center flex-shrink-0"><Zap size={12} /></div> Detailed Logo Reviews</li>
+                                <li className="flex items-center gap-3 text-sm font-medium"><div className="w-5 h-5 rounded-full bg-green-100 text-brand-green flex items-center justify-center flex-shrink-0"><Zap size={12} /></div> Cyberpunk/Print Style</li>
+                                <li className="flex items-center gap-3 text-sm font-medium"><div className="w-5 h-5 rounded-full bg-green-100 text-brand-green flex items-center justify-center flex-shrink-0"><Zap size={12} /></div> Brand Guidelines</li>
                             </ul>
                         </motion.div>
 
                         {/* Card 2 */}
                         <motion.div
                             whileHover={{ scale: 1.02 }}
-                            className="p-8 border-2 border-gray-100 rounded-2xl bg-bg-light transition-all"
+                            className="p-6 md:p-8 border-2 border-gray-100 rounded-2xl bg-bg-light transition-all"
                         >
                             <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center mb-6 text-brand-orange">
                                 <MessageSquare size={24} />
                             </div>
-                            <h3 className="text-2xl font-bold mb-4">SMM Mastery</h3>
-                            <p className="text-gray-600 mb-8 leading-relaxed">
+                            <h3 className="text-xl md:text-2xl font-bold mb-4">SMM Mastery</h3>
+                            <p className="text-gray-600 mb-6 leading-relaxed text-sm md:text-base">
                                 Aggressive growth strategies focusing on high-engagement visual storytelling.
                             </p>
                             <ul className="space-y-3">
-                                <li className="flex items-center gap-3 text-sm font-medium"><div className="w-5 h-5 rounded-full bg-green-100 text-brand-green flex items-center justify-center"><Zap size={12} /></div> Viral Content Creation</li>
-                                <li className="flex items-center gap-3 text-sm font-medium"><div className="w-5 h-5 rounded-full bg-green-100 text-brand-green flex items-center justify-center"><Zap size={12} /></div> Multi-platform Strategy</li>
-                                <li className="flex items-center gap-3 text-sm font-medium"><div className="w-5 h-5 rounded-full bg-green-100 text-brand-green flex items-center justify-center"><Zap size={12} /></div> Community Building</li>
+                                <li className="flex items-center gap-3 text-sm font-medium"><div className="w-5 h-5 rounded-full bg-green-100 text-brand-green flex items-center justify-center flex-shrink-0"><Zap size={12} /></div> Viral Content Creation</li>
+                                <li className="flex items-center gap-3 text-sm font-medium"><div className="w-5 h-5 rounded-full bg-green-100 text-brand-green flex items-center justify-center flex-shrink-0"><Zap size={12} /></div> Multi-platform Strategy</li>
+                                <li className="flex items-center gap-3 text-sm font-medium"><div className="w-5 h-5 rounded-full bg-green-100 text-brand-green flex items-center justify-center flex-shrink-0"><Zap size={12} /></div> Community Building</li>
                             </ul>
                         </motion.div>
 
                         {/* Card 3 */}
                         <motion.div
                             whileHover={{ scale: 1.02 }}
-                            className="p-8 border-2 border-gray-100 rounded-2xl bg-bg-light transition-all"
+                            className="p-6 md:p-8 border-2 border-gray-100 rounded-2xl bg-bg-light transition-all sm:col-span-2 lg:col-span-1"
                         >
                             <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center mb-6 text-brand-orange">
                                 <Rocket size={24} />
                             </div>
-                            <h3 className="text-2xl font-bold mb-4">Ad Campaigns</h3>
-                            <p className="text-gray-600 mb-8 leading-relaxed">
+                            <h3 className="text-xl md:text-2xl font-bold mb-4">Ad Campaigns</h3>
+                            <p className="text-gray-600 mb-6 leading-relaxed text-sm md:text-base">
                                 Conversion-optimized creative sets designed to slice through the digital noise.
                             </p>
                             <ul className="space-y-3">
-                                <li className="flex items-center gap-3 text-sm font-medium"><div className="w-5 h-5 rounded-full bg-green-100 text-brand-green flex items-center justify-center"><Zap size={12} /></div> Motion Ad Creative</li>
-                                <li className="flex items-center gap-3 text-sm font-medium"><div className="w-5 h-5 rounded-full bg-green-100 text-brand-green flex items-center justify-center"><Zap size={12} /></div> A/B Variation Testing</li>
-                                <li className="flex items-center gap-3 text-sm font-medium"><div className="w-5 h-5 rounded-full bg-green-100 text-brand-green flex items-center justify-center"><Zap size={12} /></div> Data-Driven Iteration</li>
+                                <li className="flex items-center gap-3 text-sm font-medium"><div className="w-5 h-5 rounded-full bg-green-100 text-brand-green flex items-center justify-center flex-shrink-0"><Zap size={12} /></div> Motion Ad Creative</li>
+                                <li className="flex items-center gap-3 text-sm font-medium"><div className="w-5 h-5 rounded-full bg-green-100 text-brand-green flex items-center justify-center flex-shrink-0"><Zap size={12} /></div> A/B Variation Testing</li>
+                                <li className="flex items-center gap-3 text-sm font-medium"><div className="w-5 h-5 rounded-full bg-green-100 text-brand-green flex items-center justify-center flex-shrink-0"><Zap size={12} /></div> Data-Driven Iteration</li>
                             </ul>
                         </motion.div>
                     </div>
@@ -113,70 +145,47 @@ const Home = () => {
             </section>
 
             {/* Process Section */}
-            <section id="process" className="px-4 sm:px-6 lg:px-8 py-24 bg-[#fff9f4]">
+            <section id="process" className="px-4 sm:px-6 lg:px-8 py-16 md:py-24 bg-[#fff9f4]">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-4xl font-extrabold mb-20 text-text-dark">Our Process</h2>
+                    <h2 className="text-3xl md:text-4xl font-extrabold mb-16 text-text-dark">Our Process</h2>
 
                     <div className="relative">
                         {/* Connecting Line */}
-                        <div className="absolute left-[23px] md:left-1/2 top-0 bottom-0 w-px bg-orange-200 md:-translate-x-1/2 hidden md:block" />
+                        <div className="absolute left-1/2 top-0 bottom-0 w-px bg-orange-200 -translate-x-1/2 hidden md:block" />
 
                         {/* Steps */}
-                        <div className="space-y-16">
-                            {/* Step 1 */}
-                            <div className="relative flex flex-col items-center">
-                                <div className="w-12 h-12 rounded-full border-2 border-brand-orange bg-white text-brand-orange font-bold flex items-center justify-center text-xl z-10 mb-6">
-                                    1
+                        <div className="space-y-12 md:space-y-16">
+                            {[
+                                { num: 1, title: 'Sync', desc: "Deep-dive into your brand's DNA and business objectives.", filled: false },
+                                { num: 2, title: 'Ideate', desc: 'Explosive creative brainstorming and moodboarding.', filled: false },
+                                { num: 3, title: 'Render', desc: 'High-fidelity asset production and visual creation.', filled: false },
+                                { num: 4, title: 'Deploy', desc: 'Launch and continuous performance optimization.', filled: true },
+                            ].map((step) => (
+                                <div key={step.num} className="relative flex flex-col items-center">
+                                    <div className={`w-12 h-12 rounded-full border-2 border-brand-orange font-bold flex items-center justify-center text-xl z-10 mb-4 ${step.filled ? 'bg-brand-orange text-white' : 'bg-white text-brand-orange'}`}>
+                                        {step.num}
+                                    </div>
+                                    <h4 className="text-xl font-bold mb-2">{step.title}</h4>
+                                    <p className="text-gray-500 text-sm max-w-xs text-center">{step.desc}</p>
                                 </div>
-                                <h4 className="text-xl font-bold mb-2">Sync</h4>
-                                <p className="text-gray-500 text-sm max-w-xs text-center">Deep-dive into your brand's DNA and business objectives.</p>
-                            </div>
-
-                            {/* Step 2 */}
-                            <div className="relative flex flex-col items-center">
-                                <div className="w-12 h-12 rounded-full border-2 border-brand-orange bg-white text-brand-orange font-bold flex items-center justify-center text-xl z-10 mb-6">
-                                    2
-                                </div>
-                                <h4 className="text-xl font-bold mb-2">Ideate</h4>
-                                <p className="text-gray-500 text-sm max-w-xs text-center">Explosive creative brainstorming and moodboarding.</p>
-                            </div>
-
-                            {/* Step 3 */}
-                            <div className="relative flex flex-col items-center">
-                                <div className="w-12 h-12 rounded-full border-2 border-brand-orange bg-white text-brand-orange font-bold flex items-center justify-center text-xl z-10 mb-6">
-                                    3
-                                </div>
-                                <h4 className="text-xl font-bold mb-2">Render</h4>
-                                <p className="text-gray-500 text-sm max-w-xs text-center">High-fidelity asset production and visual creation.</p>
-                            </div>
-
-                            {/* Step 4 */}
-                            <div className="relative flex flex-col items-center">
-                                <div className="w-12 h-12 rounded-full bg-brand-orange border-2 border-brand-orange text-white font-bold flex items-center justify-center text-xl z-10 mb-6">
-                                    4
-                                </div>
-                                <h4 className="text-xl font-bold mb-2">Deploy</h4>
-                                <p className="text-gray-500 text-sm max-w-xs text-center">Launch and continuous performance optimization.</p>
-                            </div>
+                            ))}
                         </div>
                     </div>
                 </div>
             </section>
 
-
-
             {/* Review Section */}
             <ReviewSection />
 
             {/* CTA Section */}
-            <section className="px-4 sm:px-6 lg:px-8 py-24 bg-white">
+            <section className="px-4 sm:px-6 lg:px-8 py-16 md:py-24 bg-white">
                 <div className="max-w-5xl mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-gray-50 p-10 md:p-16 rounded-[2rem] border-2 border-gray-100">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-gray-50 p-8 md:p-16 rounded-[2rem] border-2 border-gray-100">
                         <div>
-                            <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+                            <h2 className="text-3xl md:text-5xl font-extrabold leading-tight mb-6">
                                 Ready to enter the <span className="text-brand-green">Next Dimension?</span>
                             </h2>
-                            <p className="text-gray-600 mb-8 max-w-md text-lg leading-relaxed">
+                            <p className="text-gray-600 mb-8 max-w-md text-base md:text-lg leading-relaxed">
                                 Stop settling for average visuals. Let's build a brand that defines the future of your industry.
                             </p>
                             <a href="/contact" className="inline-flex justify-center items-center gap-3 w-full sm:w-auto px-8 py-4 bg-brand-orange text-white font-bold rounded-full hover:bg-orange-600 transition-colors">
@@ -186,16 +195,16 @@ const Home = () => {
 
                         <div className="grid grid-cols-2 gap-4">
                             <div className="aspect-square bg-orange-100 rounded-3xl flex items-center justify-center text-brand-orange">
-                                <Zap size={48} />
+                                <Zap size={40} />
                             </div>
                             <div className="aspect-square bg-green-100 rounded-3xl flex items-center justify-center text-brand-green">
-                                <TrendingUp size={48} />
+                                <TrendingUp size={40} />
                             </div>
                             <div className="aspect-square bg-green-50 rounded-3xl flex items-center justify-center text-brand-green">
-                                <Cpu size={48} />
+                                <Cpu size={40} />
                             </div>
                             <div className="aspect-square bg-orange-50 rounded-3xl flex items-center justify-center text-brand-orange">
-                                <Maximize size={48} />
+                                <Maximize size={40} />
                             </div>
                         </div>
                     </div>

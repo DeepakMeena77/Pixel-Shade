@@ -10,14 +10,29 @@
 }
 
 @layer base {
+  /* Prevent horizontal overflow / desktop-mode zoom on mobile */
+  html {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
   body {
     background-color: var(--color-bg-light);
     color: var(--color-text-dark);
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Safety guard — no element should be wider than the viewport */
+  *, *::before, *::after {
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   /* Explicitly enforcing NO drop-shadows as requested */
@@ -25,3 +40,4 @@
     box-shadow: none !important;
   }
 }
+

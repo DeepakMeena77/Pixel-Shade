@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Paintbrush, MessageSquare, Diamond, Layers, Star, Send, CheckCircle, ChevronDown, Image as ImageIcon, X, ZoomIn } from 'lucide-react'
+import { Paintbrush, MessageSquare, Diamond, Layers, Star, Send, CheckCircle, ChevronDown, Image as ImageIcon, X, ZoomIn, TrendingUp, Target, Users, BarChart2, Video, FileText, Headphones, Calendar, Search, Gift, Clock, Zap, Award, Shield, ArrowRight } from 'lucide-react'
 import { supabase } from '../config/supabase'
 import emailjs from '@emailjs/browser'
 
@@ -424,34 +424,11 @@ const Services = () => {
 
     const servicesList = [
         {
-            id: "invitations",
-            icon: <Diamond size={32} className="text-brand-orange" />,
-            title: "Custom Invitation Cards",
-            description: (
-                <>
-                    💌 Planning a special event and need the perfect invitation?
-                    <br /><br />
-                    Make your first impression unforgettable with our beautifully crafted digital and print-ready cards. ✨
-                    <br /><br />
-                    At PixelShade, we design elegant invitations that match your vibe and theme perfectly! 🎨
-                    <br /><br />
-                    <span className="font-bold text-brand-orange text-lg">💰 Custom Wedding Cards: Starts from ₹600</span><br />
-                    <span className="font-bold text-brand-orange text-lg">🎬 Video Invitations: Starts from ₹700</span>
-                    <br /><br />
-                    Reach out today to make your event truly memorable!
-                </>
-            ),
-            features: [
-                "✨ Premium Typography & Layout",
-                "🎨 Custom Illustrations",
-                "🖨️ Print-Ready & Digital Formats",
-                "📹 Animated/Video Invites Available"
-            ]
-        },
-        {
             id: "social-media",
-            icon: <MessageSquare size={32} className="text-brand-green" />,
+            icon: <MessageSquare size={28} className="text-brand-green" />,
+            badge: "Most Popular",
             title: "Social Media Promo & Management",
+            tagline: "Grow your brand presence across every platform.",
             description: (
                 <>
                     🚀 Want to grow your business quickly on social media?
@@ -465,6 +442,7 @@ const Services = () => {
                     Start right now to take your business to the next level!
                 </>
             ),
+            pricing: "Starts from ₹4,999 / Month",
             features: [
                 "✨ 30 Posts Every Month",
                 "📊 Fast Growth Strategy",
@@ -475,8 +453,10 @@ const Services = () => {
         },
         {
             id: "logos",
-            icon: <Layers size={32} className="text-brand-orange" />,
+            icon: <Layers size={28} className="text-brand-orange" />,
+            badge: null,
             title: "Logo Designing",
+            tagline: "Craft a brand identity that commands respect.",
             description: (
                 <>
                     🎯 Start your brand journey with an iconic identity!
@@ -485,11 +465,12 @@ const Services = () => {
                     <br /><br />
                     We specialize in creating powerful, memorable, and custom logos tailored to your brand's unique story. 🖌️
                     <br /><br />
-                    <span className="font-bold text-brand-orange text-xl">💰 Logos: Starts from ₹500</span>
+                    <span className="font-bold text-brand-orange text-xl">💰 Logos: Starts from ₹1,500</span>
                     <br /><br />
                     Let's design a brand identity you'll be proud to show off!
                 </>
             ),
+            pricing: "Starts from ₹1,500",
             features: [
                 "✨ Custom, Unique Designs",
                 "📐 High-Resolution Vector Files",
@@ -499,26 +480,27 @@ const Services = () => {
         },
         {
             id: "graphic-design",
-            icon: <Paintbrush size={32} className="text-brand-green" />,
+            icon: <Paintbrush size={28} className="text-brand-green" />,
+            badge: null,
             title: "General Graphic Design",
+            tagline: "High-converting visuals for every marketing need.",
             description: (
                 <>
                     🎨 Need professional graphics for your business or marketing?
                     <br /><br />
                     From promotional materials to business stationery, we create high-converting designs that grab attention! 🔥
                     <br /><br />
-                    <span className="font-bold text-brand-orange text-lg">💰 Flyers & Brochures: Starts from ₹350</span><br />
-                    <span className="font-bold text-brand-orange text-lg">💳 Business/Visiting Cards: Starts from ₹500</span><br />
-                    <span className="font-bold text-brand-orange text-lg">✨ Canva Pro (1 Year) - Starts from ₹199</span>
+                    <span className="font-bold text-brand-orange text-lg">💰 Flyers & Brochures: Starts from ₹1,000</span><br />
+                    <span className="font-bold text-brand-orange text-lg">💳 Business/Visiting Cards: Starts from ₹1,000</span>
                     <br /><br />
                     Upgrade your visual game today!
                 </>
             ),
+            pricing: "Starts from ₹1,000",
             features: [
                 "✨ Eye-Catching Flyers & Posters",
                 "🏢 Professional Business Cards",
-                "📱 Clean UI/Ad Creatives",
-                "👑 Premium Canva Access"
+                "📱 Clean UI/Ad Creatives"
             ]
         }
     ]
@@ -528,105 +510,399 @@ const Services = () => {
     }
 
     return (
-        <div className="bg-bg-light min-h-screen py-24">
+        <>
+        <div className="bg-bg-light min-h-screen py-20 md:py-24">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* ── Header ── */}
-                <div className="text-center mb-20 max-w-3xl mx-auto">
+                <div className="text-center mb-12 md:mb-20 max-w-3xl mx-auto">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-5xl md:text-6xl font-extrabold text-text-dark mb-6"
+                        className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-text-dark mb-6"
                     >
                         Our <span className="text-brand-orange">Arsenal</span>
                     </motion.h1>
-                    <p className="text-xl text-gray-600">
+                    <p className="text-base md:text-xl text-gray-600">
                         We don't just create graphics; we build visual assets designed to dominate digital and physical spaces. Explore our core capabilities.
                     </p>
                 </div>
 
                 {/* ── Service Cards ── */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div className="flex flex-col gap-8">
                     {servicesList.map((service, index) => (
                         <motion.div
                             key={service.id}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, x: -24 }}
+                            whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                            className="bg-white p-10 md:p-14 border-2 border-text-dark rounded-[2.5rem] hover:bg-gray-50 transition-colors flex flex-col items-start"
+                            transition={{ delay: index * 0.1, duration: 0.5, ease: 'easeOut' }}
+                            className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100"
+                            style={{ borderLeft: '4px solid', borderLeftColor: index % 2 === 0 ? 'var(--brand-green, #22c55e)' : 'var(--brand-orange, #f97316)' }}
                         >
-                            {/* Icon */}
-                            <div className="mb-6 bg-gray-100 p-4 rounded-full border-2 border-gray-200">
-                                {service.icon}
-                            </div>
+                            <div className="p-5 md:p-10 flex flex-col md:flex-row gap-6 md:gap-8">
 
-                            {/* Title & Description */}
-                            <h2 className="text-3xl font-bold mb-4">{service.title}</h2>
-                            <p className="text-gray-600 mb-8 leading-relaxed text-lg flex-grow">
-                                {service.description}
-                            </p>
+                                {/* Left: Icon + Title */}
+                                <div className="flex-shrink-0 flex flex-col items-start gap-3 md:gap-4 w-full md:w-64">
+                                    <div className="flex items-center gap-3">
+                                        <div className="p-3 rounded-xl bg-gray-50 border border-gray-100 group-hover:scale-110 transition-transform duration-300">
+                                            {service.icon}
+                                        </div>
+                                        {service.badge && (
+                                            <span className="text-xs font-bold uppercase tracking-widest text-brand-orange bg-orange-50 border border-orange-100 px-3 py-1 rounded-full">
+                                                {service.badge}
+                                            </span>
+                                        )}
+                                    </div>
+                                    <div>
+                                        <h2 className="text-2xl font-extrabold text-text-dark leading-tight">{service.title}</h2>
+                                        <p className="text-sm text-gray-400 mt-1 italic">{service.tagline}</p>
+                                    </div>
+                                    {/* Pricing pill */}
+                                    <div className="mt-auto pt-2">
+                                        <span className="inline-block bg-gray-900 text-white text-sm font-semibold px-4 py-2 rounded-full">
+                                            {service.pricing}
+                                        </span>
+                                    </div>
+                                </div>
 
-                            {/* Features */}
-                            <div className="w-full pt-6 border-t border-gray-200">
-                                <ul className="space-y-2">
-                                    {service.features.map((feature, fIndex) => (
-                                        <li key={fIndex} className="flex items-center gap-2 font-medium text-text-dark">
-                                            <span className="w-2 h-2 rounded-full bg-brand-green" />
-                                            {feature}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+                                {/* Divider */}
+                                <div className="hidden md:block w-px bg-gray-100 self-stretch" />
 
-                            {/* ── Toggle Reviews Button ── */}
-                            <button
-                                onClick={() => toggleReviews(service.id)}
-                                className="mt-8 w-full flex items-center justify-between px-5 py-3.5 bg-gray-100 hover:bg-gray-200 rounded-2xl transition-colors group"
-                            >
-                                <span className="font-semibold text-text-dark flex items-center gap-2 text-sm">
-                                    <Star size={16} className="text-yellow-500 fill-yellow-500" />
-                                    Customer Reviews & Feedback
-                                </span>
-                                <ChevronDown
-                                    size={18}
-                                    className={`text-gray-500 transition-transform duration-300 ${openReviews === service.id ? 'rotate-180' : ''}`}
-                                />
-                            </button>
+                                {/* Right: Description + Features + Reviews */}
+                                <div className="flex-grow flex flex-col gap-5">
+                                    <p className="text-gray-600 leading-relaxed text-base">
+                                        {service.description}
+                                    </p>
 
-                            {/* ── Collapsible Review Panel ── */}
-                            <AnimatePresence>
-                                {openReviews === service.id && (
-                                    <motion.div
-                                        key="panel"
-                                        initial={{ opacity: 0, height: 0 }}
-                                        animate={{ opacity: 1, height: 'auto' }}
-                                        exit={{ opacity: 0, height: 0 }}
-                                        transition={{ duration: 0.35, ease: 'easeInOut' }}
-                                        className="overflow-hidden w-full"
+                                    {/* Features */}
+                                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                        {service.features.map((feature, fIndex) => (
+                                            <li key={fIndex} className="flex items-center gap-2 text-sm font-medium text-text-dark bg-gray-50 rounded-lg px-3 py-2 border border-gray-100">
+                                                <CheckCircle size={14} className="text-brand-green flex-shrink-0" />
+                                                {feature}
+                                            </li>
+                                        ))}
+                                    </ul>
+
+                                    {/* ── Toggle Reviews Button ── */}
+                                    <button
+                                        onClick={() => toggleReviews(service.id)}
+                                        className="mt-2 flex items-center justify-between px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-xl border border-gray-200 transition-colors"
                                     >
-                                        <ServiceReviewPanel
-                                            serviceId={service.id}
-                                            serviceTitle={service.title}
+                                        <span className="font-semibold text-text-dark flex items-center gap-2 text-sm">
+                                            <Star size={15} className="text-yellow-500 fill-yellow-500" />
+                                            Customer Reviews & Feedback
+                                        </span>
+                                        <ChevronDown
+                                            size={16}
+                                            className={`text-gray-400 transition-transform duration-300 ${openReviews === service.id ? 'rotate-180' : ''}`}
                                         />
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
+                                    </button>
+
+                                    {/* ── Collapsible Review Panel ── */}
+                                    <AnimatePresence>
+                                        {openReviews === service.id && (
+                                            <motion.div
+                                                key="panel"
+                                                initial={{ opacity: 0, height: 0 }}
+                                                animate={{ opacity: 1, height: 'auto' }}
+                                                exit={{ opacity: 0, height: 0 }}
+                                                transition={{ duration: 0.35, ease: 'easeInOut' }}
+                                                className="overflow-hidden"
+                                            >
+                                                <ServiceReviewPanel
+                                                    serviceId={service.id}
+                                                    serviceTitle={service.title}
+                                                />
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
+                            </div>
                         </motion.div>
                     ))}
                 </div>
 
-                {/* ── CTA ── */}
-                <div className="mt-24 text-center">
-                    <a
-                        href="/contact"
-                        className="inline-block px-10 py-5 bg-text-dark text-white font-bold text-lg rounded-full hover:bg-gray-800 transition-colors uppercase tracking-wider"
-                    >
-                        Let's Build Something
-                    </a>
-                </div>
             </div>
         </div>
+
+        {/* ════════════════════════════════════════════════════════════
+             LEAD MACHINE — Special Growth Packages Section
+        ════════════════════════════════════════════════════════════ */}
+        <div className="bg-gray-950 py-24 overflow-hidden">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                {/* ── Section Header ── */}
+                <motion.div
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-6"
+                >
+                    <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-yellow-400 bg-yellow-400/10 border border-yellow-400/20 px-4 py-1.5 rounded-full mb-5">
+                        🚀 Special Growth Program
+                    </span>
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight">
+                        Turn Your Business Into a{' '}
+                        <span className="text-yellow-400">Lead Machine</span>
+                        {' '}in <span className="text-yellow-400">30 Days</span>
+                    </h2>
+                    <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto">
+                        We Handle Your Ads + Content + Growth —{' '}
+                        <span className="text-white font-semibold">You Get Leads & Sales</span>
+                    </p>
+                </motion.div>
+
+                {/* ── Campaign Performance Stats ── */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.15 }}
+                    className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-16"
+                >
+                    {[
+                        { label: 'Leads Generated', value: '528', delta: '↑ 162%', up: true },
+                        { label: 'Cost Per Lead', value: '₹28.40', delta: '↓ 21%', up: true },
+                        { label: 'Amount Spent', value: '₹14,250', delta: 'Optimised', up: true },
+                        { label: 'ROAS', value: '5.8X', delta: '↑ 95%', up: true },
+                    ].map((stat) => (
+                        <div key={stat.label} className="bg-white/5 border border-white/10 rounded-2xl p-4 text-center">
+                            <p className="text-2xl font-extrabold text-white">{stat.value}</p>
+                            <p className="text-xs text-gray-400 mt-1">{stat.label}</p>
+                            <span className="inline-block mt-1 text-xs font-bold text-green-400 bg-green-400/10 px-2 py-0.5 rounded-full">
+                                {stat.delta}
+                            </span>
+                        </div>
+                    ))}
+                </motion.div>
+
+                {/* ── Scarcity Banner ── */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    className="flex items-center justify-center gap-3 mb-12"
+                >
+                    <div className="flex items-center gap-2 bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-semibold px-5 py-2.5 rounded-full">
+                        <Clock size={14} className="animate-pulse" />
+                        Limited Slots Available — Only <span className="text-red-300 font-extrabold mx-1">5 Clients</span> This Month!
+                    </div>
+                </motion.div>
+
+                {/* ── Pricing Cards ── */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+                    {[
+                        {
+                            tag: 'Trial',
+                            tagColor: 'text-blue-400 bg-blue-400/10 border-blue-400/20',
+                            accentColor: 'border-blue-500/40',
+                            glowColor: 'hover:border-blue-500/70',
+                            priceColor: 'text-blue-400',
+                            price: '₹15,999',
+                            billing: 'Trial package — First Month',
+                            popular: false,
+                            freePerks: ['Free Digital Business Card'],
+                            includes: [
+                                { icon: <Video size={15} />, text: '5 High-Converting Video Ads', sub: 'Engaging & result-driven' },
+                                { icon: <FileText size={15} />, text: '5 Social Media Posters + 10 Videos', sub: 'Branded & creative' },
+                                { icon: <Target size={15} />, text: 'Ad Campaign Management', sub: null },
+                                { icon: <Calendar size={15} />, text: 'Content Preparation', sub: 'Planned & strategic content' },
+                                { icon: <BarChart2 size={15} />, text: 'Weekly Performance Reports', sub: 'Insights & optimization' },
+                                { icon: <Users size={15} />, text: 'Instagram Collaboration', sub: '3 collaborations (free)' },
+                                { icon: <Headphones size={15} />, text: '24/7 Customer Support', sub: 'We\'re always here for you' },
+                            ]
+                        },
+                        {
+                            tag: 'Most Popular',
+                            tagColor: 'text-yellow-400 bg-yellow-400/10 border-yellow-400/30',
+                            accentColor: 'border-yellow-500/60',
+                            glowColor: 'hover:border-yellow-400',
+                            priceColor: 'text-yellow-400',
+                            price: '₹21,999',
+                            billing: 'First Month — 2 Installments',
+                            popular: true,
+                            freePerks: ['Free Digital Business Card', 'Free Promotion'],
+                            includes: [
+                                { icon: <Video size={15} />, text: '10 High-Converting Video Ads', sub: 'Engaging & result-driven' },
+                                { icon: <FileText size={15} />, text: '10 Social Media Posters + 14 Videos', sub: 'Branded & creative' },
+                                { icon: <Target size={15} />, text: 'Daily Ad Campaign Management', sub: '1 Campaign Running Always' },
+                                { icon: <Calendar size={15} />, text: 'Monthly Content Calendar', sub: 'Planned & scheduled in advance' },
+                                { icon: <BarChart2 size={15} />, text: 'Weekly Performance Reports', sub: 'Insights & optimization' },
+                                { icon: <Search size={15} />, text: 'SEO (Basic)', sub: 'Get your brand to top of Google' },
+                                { icon: <Headphones size={15} />, text: '24/7 Customer Support', sub: 'We\'re always here for you' },
+                            ]
+                        },
+                        {
+                            tag: 'Pro',
+                            tagColor: 'text-orange-400 bg-orange-400/10 border-orange-400/20',
+                            accentColor: 'border-orange-500/40',
+                            glowColor: 'hover:border-orange-500/70',
+                            priceColor: 'text-orange-400',
+                            price: '₹29,999',
+                            billing: 'First Month — 2 Installments',
+                            popular: false,
+                            freePerks: ['Free Digital Business Card', 'Free Promotion'],
+                            includes: [
+                                { icon: <Video size={15} />, text: '15 High-Converting Video Ads', sub: 'Engaging & result-driven' },
+                                { icon: <FileText size={15} />, text: '10 Social Media Posters + 20 Videos', sub: 'Branded & creative' },
+                                { icon: <Target size={15} />, text: 'Daily Ad Campaign Management', sub: '1 Campaign Running Always' },
+                                { icon: <Calendar size={15} />, text: 'Monthly Content Calendar', sub: 'Planned & scheduled in advance' },
+                                { icon: <BarChart2 size={15} />, text: 'Weekly Performance Reports', sub: 'Insights & optimization' },
+                                { icon: <Search size={15} />, text: 'Full SEO', sub: 'Get your brand to top of Google' },
+                                { icon: <Headphones size={15} />, text: '24/7 Customer Support', sub: 'We\'re always here for you' },
+                            ]
+                        },
+                    ].map((plan, idx) => (
+                        <motion.div
+                            key={plan.tag}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: idx * 0.12 }}
+                            className={`relative flex flex-col rounded-2xl border-2 bg-white/5 backdrop-blur-sm transition-all duration-300 ${
+                                plan.popular
+                                    ? 'border-yellow-500/60 scale-[1.03] shadow-2xl shadow-yellow-500/10'
+                                    : `${plan.accentColor} ${plan.glowColor}`
+                            }`}
+                        >
+                            {plan.popular && (
+                                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                                    <span className="bg-yellow-400 text-gray-900 text-xs font-extrabold uppercase tracking-widest px-5 py-1.5 rounded-full shadow-lg">
+                                        ⭐ Most Popular
+                                    </span>
+                                </div>
+                            )}
+                            <div className="p-7 flex flex-col h-full">
+                                {/* Tag + Price */}
+                                <div className="mb-6">
+                                    <span className={`inline-block text-xs font-bold uppercase tracking-widest border px-3 py-1 rounded-full mb-3 ${plan.tagColor}`}>
+                                        {plan.tag}
+                                    </span>
+                                    <div className="flex items-end gap-1">
+                                        <span className={`text-5xl font-extrabold ${plan.priceColor}`}>{plan.price}</span>
+                                    </div>
+                                    <p className="text-gray-500 text-xs mt-1.5">{plan.billing}</p>
+                                </div>
+
+                                {/* Divider */}
+                                <div className="border-t border-white/10 mb-5" />
+
+                                {/* Includes */}
+                                <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">What's Included</p>
+                                <ul className="flex flex-col gap-3 flex-grow">
+                                    {plan.includes.map((item, i) => (
+                                        <li key={i} className="flex items-start gap-3">
+                                            <span className={`mt-0.5 flex-shrink-0 ${plan.priceColor}`}>{item.icon}</span>
+                                            <div>
+                                                <p className="text-white text-sm font-medium">{item.text}</p>
+                                                {item.sub && <p className="text-gray-500 text-xs">{item.sub}</p>}
+                                            </div>
+                                        </li>
+                                    ))}
+                                </ul>
+
+                                {/* Free Perks */}
+                                <div className="mt-5 pt-4 border-t border-white/10">
+                                    {plan.freePerks.map((perk, i) => (
+                                        <div key={i} className="flex items-center gap-2 text-xs text-green-400 font-semibold mb-1">
+                                            <Gift size={12} />
+                                            <span>Free {perk}</span>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* CTA */}
+                                <a
+                                    href="/contact"
+                                    className={`mt-5 flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-bold text-sm transition-all duration-300 ${
+                                        plan.popular
+                                            ? 'bg-yellow-400 text-gray-900 hover:bg-yellow-300 shadow-lg shadow-yellow-400/20'
+                                            : 'bg-white/10 text-white hover:bg-white/20 border border-white/10'
+                                    }`}
+                                >
+                                    Get Started <ArrowRight size={14} />
+                                </a>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+
+                {/* ── Why Businesses Choose Us ── */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mb-16"
+                >
+                    <h3 className="text-center text-2xl font-extrabold text-white mb-8">
+                        Why Businesses <span className="text-yellow-400">Choose Us</span>
+                    </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        {[
+                            { icon: <Target size={22} className="text-yellow-400" />, title: 'Get Consistent Leads', highlight: 'Daily', desc: 'Real qualified leads delivered to your business every single day.' },
+                            { icon: <Zap size={22} className="text-yellow-400" />, title: 'Done-for-You Content', highlight: '+ Ads', desc: 'We create, manage, and publish everything — you focus on your business.' },
+                            { icon: <Users size={22} className="text-yellow-400" />, title: 'Target the Right', highlight: 'Audience', desc: 'Precision audience targeting so every rupee reaches your ideal customer.' },
+                            { icon: <TrendingUp size={22} className="text-yellow-400" />, title: 'Optimized for Maximum', highlight: 'ROI', desc: 'Data-driven campaigns continuously improved for best return on spend.' },
+                        ].map((reason, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 16 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-yellow-400/30 transition-colors"
+                            >
+                                <div className="w-10 h-10 rounded-xl bg-yellow-400/10 flex items-center justify-center mb-4">
+                                    {reason.icon}
+                                </div>
+                                <h4 className="text-white font-bold text-base">
+                                    {reason.title}{' '}
+                                    <span className="text-yellow-400">{reason.highlight}</span>
+                                </h4>
+                                <p className="text-gray-500 text-sm mt-1.5 leading-relaxed">{reason.desc}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </motion.div>
+
+                {/* ── Trust Pillars ── */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    className="border-t border-white/10 pt-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
+                >
+                    {[
+                        { icon: <Award size={20} />, label: 'Proven Results' },
+                        { icon: <BarChart2 size={20} />, label: 'Transparent Reporting' },
+                        { icon: <Users size={20} />, label: 'Expert Team' },
+                        { icon: <TrendingUp size={20} />, label: 'Scalable Growth' },
+                    ].map((pillar) => (
+                        <div key={pillar.label} className="flex flex-col items-center gap-2">
+                            <div className="text-yellow-400">{pillar.icon}</div>
+                            <p className="text-gray-400 text-sm font-medium">{pillar.label}</p>
+                        </div>
+                    ))}
+                </motion.div>
+
+            </div>
+        </div>
+
+
+        {/* ── CTA ── */}
+        <div className="bg-bg-light py-16 text-center">
+            <div className="max-w-7xl mx-auto px-4">
+                <a
+                    href="/contact"
+                    className="inline-block px-10 py-5 bg-text-dark text-white font-bold text-lg rounded-full hover:bg-gray-800 transition-colors uppercase tracking-wider"
+                >
+                    Let's Build Something
+                </a>
+            </div>
+        </div>
+        </>
     )
 }
 
