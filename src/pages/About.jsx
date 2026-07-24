@@ -42,7 +42,7 @@ const About = () => {
                             
                             {/* The User's Selfie Image */}
                             <img 
-                                src="/selfie.jpg.jpeg" 
+                                src="/selfie.jpg.webp" 
                                 alt="Founder" 
                                 className="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-105 transition-transform duration-500"
                                 onError={(e) => {
@@ -85,7 +85,7 @@ const About = () => {
                         <motion.div whileHover={{ scale: 1.02 }} className="bg-white p-8 rounded-[2.5rem] border-2 border-gray-100 shadow-sm flex flex-col pt-10">
                             <div className="flex items-center gap-4 mb-6">
                                 <div className="w-14 h-14 rounded-full bg-gradient-to-tr from-yellow-400 to-pink-500 p-1">
-                                    <img src="/logo.jpg.png" alt="Client" className="w-full h-full rounded-full border-2 border-white object-cover bg-white" />
+                                    <img src="/logo.jpg.webp" alt="Client" className="w-full h-full rounded-full border-2 border-white object-cover bg-white" />
                                 </div>
                                 <div>
                                     <h3 className="text-xl font-bold text-text-dark">Rohan K. <span className="text-blue-500 text-sm">✓</span></h3>
@@ -119,7 +119,7 @@ const About = () => {
                         <motion.div whileHover={{ scale: 1.02 }} className="bg-white p-8 rounded-[2.5rem] border-2 border-gray-100 shadow-sm flex flex-col pt-10">
                             <div className="flex items-center gap-4 mb-6">
                                 <div className="w-14 h-14 rounded-full bg-gray-200 overflow-hidden border-2 border-gray-100 flex items-center justify-center">
-                                    <img src="/wedding-5.jpeg" alt="Client" className="w-full h-full object-cover" />
+                                    <img src="/wedding-5.webp" alt="Client" className="w-full h-full object-cover" />
                                 </div>
                                 <div>
                                     <h3 className="text-xl font-bold text-text-dark">Priya & Arjun</h3>
@@ -134,7 +134,7 @@ const About = () => {
                             <div className="bg-[#e5ddd5] rounded-2xl p-5 flex flex-col gap-4 mb-6 relative overflow-hidden h-full">
                                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "url('https://wallpapers.com/images/hd/whatsapp-chat-background-wd8hpx3f6z7e6g3i.jpg')", backgroundSize: "cover"}}></div>
                                 <div className="bg-white p-2 pb-6 rounded-2xl rounded-tr-none shadow-sm max-w-[85%] self-end relative border border-gray-200 z-10">
-                                    <img src="/wedding-1.jpeg" className="rounded-xl w-full max-w-[200px] mb-2 border border-gray-100" />
+                                    <img src="/wedding-1.webp" className="rounded-xl w-full max-w-[200px] mb-2 border border-gray-100" />
                                     <p className="text-sm font-medium text-gray-800 pr-2">OMG! 😭 The cards just arrived and they look even better in print. Everyone is asking who made them! Thank you so much team!! ❤️</p>
                                     <span className="text-[10px] text-gray-400 absolute bottom-1 right-2">10:42 AM <span className="text-blue-500">✓✓</span></span>
                                 </div>
@@ -171,7 +171,7 @@ const About = () => {
                             <div className="mt-auto bg-[#f8f9fa] border-2 border-gray-200 p-5 rounded-xl flex items-center justify-between">
                                 <div className="flex items-center gap-4">
                                     <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-sm border border-gray-100">
-                                        <img src="/logo.jpg.png" alt="Logo Proof" className="w-10 h-10 object-contain" />
+                                        <img src="/logo.jpg.webp" alt="Logo Proof" className="w-10 h-10 object-contain" />
                                     </div>
                                     <div>
                                         <p className="text-sm font-bold text-gray-800 mb-1">Brand_Assets_Final.zip</p>
@@ -188,7 +188,7 @@ const About = () => {
                         <motion.div whileHover={{ scale: 1.02 }} className="bg-white p-8 rounded-[2.5rem] border-2 border-gray-100 shadow-sm flex flex-col pt-10">
                             <div className="flex items-center gap-4 mb-6">
                                 <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center overflow-hidden border-2 border-white shadow-sm">
-                                   <img src="/wedding-3.jpeg" alt="Client" className="w-full h-full object-cover mix-blend-multiply opacity-80" />
+                                   <img src="/wedding-3.webp" alt="Client" className="w-full h-full object-cover mix-blend-multiply opacity-80" />
                                 </div>
                                 <div>
                                     <h3 className="text-xl font-bold text-text-dark">Mark V.</h3>

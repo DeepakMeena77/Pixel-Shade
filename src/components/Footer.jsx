@@ -7,7 +7,7 @@ const Footer = () => {
                 <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6">
                     <div className="flex-1">
                         <div className="flex items-center justify-center md:justify-start">
-                            <img src="/logo.jpg.png" alt="Pixel Shade Logo" className="h-10 w-auto object-contain rounded-full border-2 border-transparent mb-2" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
+                            <img src="/logo.jpg.webp" alt="Pixel Shade Logo" className="h-10 w-auto object-contain rounded-full border-2 border-transparent mb-2" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
                             <span className="ml-3 text-2xl font-bold tracking-tighter text-white">
                                 PIXEL<span className="text-brand-orange">SHADE</span>
                             </span>

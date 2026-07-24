@@ -1,0 +1,1 @@
+import{c as s}from"./vendor-supabase-DiOMTyHL.js";const a="https://nlwjsajbbsugtaiwmzax.supabase.co",I="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5sd2pzYWpiYnN1Z3RhaXdtemF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ4MDQ2OTMsImV4cCI6MjEwMDM4MDY5M30.Zk7h_HznMOH-aL-399bu65PZdKqgNRwcRNy7x16U4RI",c=s(a,I);export{c as s};

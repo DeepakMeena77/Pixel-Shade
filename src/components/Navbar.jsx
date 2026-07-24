@@ -10,7 +10,7 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-20">
                     <div className="flex-shrink-0 flex items-center">
-                        <img src="/logo.jpg.png" alt="Pixel Shade Logo" className="h-9 md:h-12 w-auto object-contain rounded-full border-2 border-transparent" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
+                        <img src="/logo.jpg.webp" alt="Pixel Shade Logo" className="h-9 md:h-12 w-auto object-contain rounded-full border-2 border-transparent" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
                         <span className="ml-2 md:ml-3 text-lg md:text-2xl font-bold tracking-tighter text-text-dark">
                             PIXEL<span className="text-brand-orange">SHADE</span>
                         </span>
