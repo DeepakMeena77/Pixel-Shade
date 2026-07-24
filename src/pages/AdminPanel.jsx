@@ -628,21 +628,26 @@ function OurWorkTab() {
             if (logoFile) {
                 setUploadProgress(true)
                 try {
-                    const ext = logoFile.name.split('.').pop()
-                    const fileName = `${fName.toLowerCase().replace(/\s+/g, '-')}-${Date.now()}.${ext}`
+                    const ext = logoFile.name.split('.').pop().toLowerCase()
+                    // Sanitize: lowercase, spaces → hyphens, remove non-alphanumeric except hyphens/dots
+                    const safeName = fName.toLowerCase()
+                        .replace(/\s+/g, '-')
+                        .replace(/[^a-z0-9\-]/g, '')
+                    const fileName = `logos/${safeName}-${Date.now()}.${ext}`
                     const { error: uploadErr } = await supabase.storage
                         .from('portfolio-logos')
-                        .upload(fileName, logoFile, { upsert: false })
-                    if (!uploadErr) {
-                        const { data: urlData } = supabase.storage
-                            .from('portfolio-logos')
-                            .getPublicUrl(fileName)
-                        logoUrl = urlData.publicUrl
-                    } else {
-                        setError(`Logo upload failed: ${uploadErr.message}. Saving with existing URL.`)
+                        .upload(fileName, logoFile, {
+                            upsert: true,
+                            contentType: logoFile.type,
+                        })
+                    if (uploadErr) {
+                        // Surface the real error — do NOT silently swallow it
+                        throw new Error(`Image upload failed: ${uploadErr.message}. Please ensure the "portfolio-logos" bucket exists in Supabase Storage and has public read + insert policies enabled.`)
                     }
-                } catch (uploadErr) {
-                    console.warn('Logo upload error:', uploadErr)
+                    const { data: urlData } = supabase.storage
+                        .from('portfolio-logos')
+                        .getPublicUrl(fileName)
+                    logoUrl = urlData.publicUrl
                 } finally {
                     setUploadProgress(false)
                 }
@@ -749,8 +754,10 @@ function OurWorkTab() {
                         >
                             <div className={`flex items-center justify-center h-36 bg-gradient-to-br ${client.bg}`}>
                                 {client.logo_url ? (
-                                    <img src={client.logo_url} alt={client.name}
-                                        className="w-24 h-24 object-cover rounded-xl shadow" />
+                                    <div className="w-24 h-24 rounded-xl shadow bg-white flex items-center justify-center p-2 overflow-hidden">
+                                        <img src={client.logo_url} alt={client.name}
+                                            className="w-full h-full object-contain" />
+                                    </div>
                                 ) : (
                                     <div className="w-24 h-24 rounded-xl bg-gray-200 flex items-center justify-center text-gray-400">
                                         <ImageIcon size={28} />

@@ -1,9 +1,79 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Share2, MessageSquare, Rocket, ArrowRight, Zap, TrendingUp, Cpu, Maximize, Instagram } from 'lucide-react'
+import { Share2, MessageSquare, Rocket, ArrowRight, Zap, TrendingUp, Cpu, Maximize, Instagram, Search, Lightbulb, Palette, Send } from 'lucide-react'
 import ReviewSection from '../components/ReviewSection'
+import { supabase } from '../config/supabase'
+
+// Fallback logos (used only if DB is empty / loading)
+const FALLBACK_CLIENTS = [
+    { name: 'OSO Real Estates',         logo_url: '/logos/logo-oso-real-estates.webp' },
+    { name: 'Vivah Utshav',             logo_url: '/logos/logo-vivah-utshav.webp' },
+    { name: 'VL Boutique',              logo_url: '/logos/logo-vl-boutique.webp' },
+    { name: 'AmlaCubes',                logo_url: '/logos/logo-amla-cubes.webp' },
+    { name: 'MR Realty Talks',          logo_url: '/logos/logo-mr-realty-talks.webp' },
+    { name: 'D Boutique',               logo_url: '/logos/logo-d-boutique.webp' },
+    { name: 'MS Cell Point',            logo_url: '/logos/logo-ms-cell-point.webp' },
+    { name: 'House of Maha',            logo_url: '/logos/logo-house-of-maha.webp' },
+    { name: '1Z Realty',                logo_url: '/logos/logo-1z-realty.webp' },
+    { name: 'Astrologer Ramaraju',      logo_url: '/logos/logo-astrologer-ramaraju.webp' },
+    { name: 'Sri Mahalakshmi Traders',  logo_url: '/logos/logo-sri-mahalakshmi-traders.webp' },
+    { name: 'VJPT',                     logo_url: '/logos/logo-vjpt.webp' },
+    { name: 'Divya Jewelers',           logo_url: '/logos/logo-divya-jewelers.webp' },
+    { name: 'Avigna',                   logo_url: '/logos/logo-avigna.webp' },
+]
+
+const processSteps = [
+    {
+        num: '01',
+        icon: Search,
+        title: 'Discovery',
+        subtitle: 'Understanding Your Brand',
+        desc: 'We start by diving deep into your business goals, target audience, and competitive landscape to build a solid creative foundation.',
+    },
+    {
+        num: '02',
+        icon: Lightbulb,
+        title: 'Strategy',
+        subtitle: 'Ideas That Convert',
+        desc: 'From mood boards to messaging — we map out a visual strategy aligned with your brand identity and market positioning.',
+    },
+    {
+        num: '03',
+        icon: Palette,
+        title: 'Design',
+        subtitle: 'Crafted with Precision',
+        desc: 'Every pixel is intentional. We produce high-fidelity assets that are visually striking and ready for every platform.',
+    },
+    {
+        num: '04',
+        icon: Send,
+        title: 'Deliver',
+        subtitle: 'Launch & Grow',
+        desc: 'Final files handed over in all formats. We stay connected post-delivery to ensure everything performs as expected.',
+    },
+]
 
 const Home = () => {
+    const [clients, setClients] = useState(FALLBACK_CLIENTS)
+
+    useEffect(() => {
+        const fetchClients = async () => {
+            try {
+                const { data, error } = await supabase
+                    .from('portfolio_clients')
+                    .select('id, name, logo_url')
+                    .order('sort_order', { ascending: true })
+                if (!error && data && data.length > 0) {
+                    setClients(data)
+                }
+            } catch (err) {
+                // silently fall back to FALLBACK_CLIENTS
+                console.warn('Home: could not fetch clients from DB', err)
+            }
+        }
+        fetchClients()
+    }, [])
+
     return (
         <div className="flex flex-col min-h-screen">
 
@@ -64,7 +134,6 @@ const Home = () => {
                                 title="Email us at pixelshade.co@gmail.com"
                                 className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-full bg-white border-2 border-gray-200 hover:border-red-400 hover:shadow-lg hover:scale-110 transition-all duration-200"
                             >
-                                {/* Official Gmail icon */}
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24" height="24">
                                     <path fill="#4caf50" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.657,0,3-1.343,3-3V16.2z"/>
                                     <path fill="#1e88e5" d="M3,16.2l3.614,1.71L13,23.7V40H6c-1.657,0-3-1.343-3-3V16.2z"/>
@@ -91,8 +160,44 @@ const Home = () => {
                 </div>
             </section>
 
+            {/* ── Trusted By Strip ── */}
+            <section className="bg-white border-y border-gray-100 py-8 overflow-hidden">
+                <div className="max-w-7xl mx-auto px-4 mb-5 text-center">
+                    <p className="text-xs font-bold uppercase tracking-widest text-gray-400">
+                        Trusted by <span className="text-brand-orange">20+ businesses</span> across multiple industries
+                    </p>
+                </div>
+
+                {/* Infinite marquee */}
+                <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+                    <motion.div
+                        className="flex gap-8 shrink-0"
+                        animate={{ x: ['0%', '-50%'] }}
+                        transition={{ duration: 28, ease: 'linear', repeat: Infinity }}
+                    >
+                        {[...clients, ...clients].map((c, i) => (
+                            <div
+                                key={i}
+                                className="flex-shrink-0 flex items-center justify-center w-24 h-16 bg-gray-50 rounded-xl border border-gray-100 p-2 hover:border-orange-200 hover:shadow-sm transition-all"
+                                title={c.name}
+                            >
+                                <img
+                                    src={c.logo_url}
+                                    alt={c.name}
+                                    className="w-full h-full object-contain"
+                                    onError={(e) => {
+                                        e.target.style.display = 'none'
+                                        e.target.parentElement.innerHTML = `<span style="font-size:10px;font-weight:700;color:#9ca3af;text-align:center;line-height:1.2">${c.name}</span>`
+                                    }}
+                                />
+                            </div>
+                        ))}
+                    </motion.div>
+                </div>
+            </section>
+
             {/* Services Summary Section */}
-            <section className="px-4 sm:px-6 lg:px-8 py-16 md:py-24 bg-white border-y border-gray-100">
+            <section className="px-4 sm:px-6 lg:px-8 py-16 md:py-24 bg-white border-b border-gray-100">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                         {/* Card 1 */}
@@ -155,32 +260,69 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Process Section */}
-            <section id="process" className="px-4 sm:px-6 lg:px-8 py-16 md:py-24 bg-[#fff9f4]">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl md:text-4xl font-extrabold mb-16 text-text-dark">Our Process</h2>
+            {/* ── Our Process Section ── */}
+            <section id="process" className="px-4 sm:px-6 lg:px-8 py-20 md:py-32 bg-[#fff9f4]">
+                <div className="max-w-6xl mx-auto">
 
-                    <div className="relative">
-                        {/* Connecting Line */}
-                        <div className="absolute left-1/2 top-0 bottom-0 w-px bg-orange-200 -translate-x-1/2 hidden md:block" />
+                    {/* Header */}
+                    <div className="text-center mb-16 md:mb-20">
+                        <span className="inline-block text-xs font-bold tracking-widest uppercase text-brand-orange border border-brand-orange/40 bg-orange-50 px-4 py-1.5 rounded-full mb-4">
+                            How We Work
+                        </span>
+                        <h2 className="text-3xl md:text-5xl font-extrabold text-text-dark mb-4">Our Process</h2>
+                        <p className="text-gray-500 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+                            A structured creative workflow built for clarity, speed, and results — every single time.
+                        </p>
+                    </div>
 
-                        {/* Steps */}
-                        <div className="space-y-12 md:space-y-16">
-                            {[
-                                { num: 1, title: 'Sync', desc: "Deep-dive into your brand's DNA and business objectives.", filled: false },
-                                { num: 2, title: 'Ideate', desc: 'Explosive creative brainstorming and moodboarding.', filled: false },
-                                { num: 3, title: 'Render', desc: 'High-fidelity asset production and visual creation.', filled: false },
-                                { num: 4, title: 'Deploy', desc: 'Launch and continuous performance optimization.', filled: true },
-                            ].map((step) => (
-                                <div key={step.num} className="relative flex flex-col items-center">
-                                    <div className={`w-12 h-12 rounded-full border-2 border-brand-orange font-bold flex items-center justify-center text-xl z-10 mb-4 ${step.filled ? 'bg-brand-orange text-white' : 'bg-white text-brand-orange'}`}>
+                    {/* Steps Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {processSteps.map((step, i) => {
+                            const Icon = step.icon
+                            return (
+                                <motion.div
+                                    key={step.num}
+                                    initial={{ opacity: 0, y: 24 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.1, duration: 0.5 }}
+                                    className="relative bg-white rounded-2xl border-2 border-gray-100 p-7 flex flex-col hover:border-orange-200 hover:shadow-lg transition-all duration-300 group"
+                                >
+                                    {/* Step number badge */}
+                                    <div className="absolute -top-3.5 left-6 bg-brand-orange text-white text-xs font-black px-3 py-1 rounded-full tracking-widest">
                                         {step.num}
                                     </div>
-                                    <h4 className="text-xl font-bold mb-2">{step.title}</h4>
-                                    <p className="text-gray-500 text-sm max-w-xs text-center">{step.desc}</p>
-                                </div>
-                            ))}
-                        </div>
+
+                                    {/* Icon */}
+                                    <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center text-brand-orange mb-5 mt-2 group-hover:bg-orange-100 transition-colors">
+                                        <Icon size={22} />
+                                    </div>
+
+                                    {/* Content */}
+                                    <h3 className="text-xl font-extrabold text-text-dark mb-1">{step.title}</h3>
+                                    <p className="text-xs font-bold text-brand-orange uppercase tracking-widest mb-3">{step.subtitle}</p>
+                                    <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
+
+                                    {/* Connector arrow (hidden on last) */}
+                                    {i < processSteps.length - 1 && (
+                                        <div className="hidden lg:block absolute -right-3.5 top-1/2 -translate-y-1/2 z-10">
+                                            <div className="w-7 h-7 rounded-full bg-orange-50 border-2 border-orange-200 flex items-center justify-center">
+                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                                    <path d="M2 5h6M5 2l3 3-3 3" stroke="#f97316" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    )}
+                                </motion.div>
+                            )
+                        })}
+                    </div>
+
+                    {/* Bottom CTA */}
+                    <div className="text-center mt-12">
+                        <a href="/contact" className="inline-flex items-center gap-2 text-sm font-bold text-brand-orange hover:underline underline-offset-4">
+                            Ready to get started? Book a free call <ArrowRight size={16} />
+                        </a>
                     </div>
                 </div>
             </section>

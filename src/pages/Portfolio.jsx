@@ -153,16 +153,24 @@ const Portfolio = () => {
 
                                     {/* Logo Display */}
                                     <div className="relative flex items-center justify-center h-56 md:h-64 p-8 pt-14">
-                                        <motion.img
-                                            src={client.logo_url}
-                                            alt={`${client.name} Logo`}
-                                            className="w-36 h-36 md:w-44 md:h-44 object-cover rounded-2xl shadow-lg"
+                                        <motion.div
+                                            className={`w-36 h-36 md:w-44 md:h-44 rounded-2xl shadow-lg flex items-center justify-center overflow-hidden p-3 ${client.dark ? 'bg-white/10' : 'bg-white'}`}
                                             animate={{
                                                 scale: hoveredIndex === index ? 1.08 : 1,
                                                 rotate: hoveredIndex === index ? 2 : 0,
                                             }}
                                             transition={{ duration: 0.4, ease: 'easeOut' }}
-                                        />
+                                        >
+                                            <img
+                                                src={client.logo_url}
+                                                alt={`${client.name} Logo`}
+                                                className="w-full h-full object-contain"
+                                                onError={(e) => {
+                                                    e.target.style.display = 'none'
+                                                    e.target.parentElement.innerHTML = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:900;color:${client.color || '#f97316'}">${client.name.charAt(0)}</div>`
+                                                }}
+                                            />
+                                        </motion.div>
                                     </div>
 
                                     {/* Hover Glow Ring */}
