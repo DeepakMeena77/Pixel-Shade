@@ -15,6 +15,17 @@ const Home = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
+                        {/* Active Online Indicator */}
+                        <div className="flex items-center justify-center gap-4 mb-5">
+                            <div className="flex items-center gap-2 bg-green-50 border border-green-200 px-3 py-1.5 rounded-full">
+                                <span className="relative flex h-2.5 w-2.5">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                                </span>
+                                <span className="text-xs font-bold text-green-700 tracking-wide">We're Online — Available Now</span>
+                            </div>
+                        </div>
+
                         <span className="inline-block py-1 px-4 mb-6 text-xs md:text-sm font-bold tracking-widest text-brand-green border border-brand-green uppercase rounded-full">
                             Future-Proof Design
                         </span>

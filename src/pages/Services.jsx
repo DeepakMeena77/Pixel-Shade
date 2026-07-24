@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Paintbrush, Diamond, Layers, Star, Send, CheckCircle, ChevronDown, Image as ImageIcon, X, ZoomIn, TrendingUp, Target, Users, BarChart2, Video, FileText, Headphones, Calendar, Search, Gift, Clock, Zap, Award, Shield, ArrowRight } from 'lucide-react'
+import { Paintbrush, Layers, Star, Send, CheckCircle, ChevronDown, Image as ImageIcon, X, ZoomIn, TrendingUp, Target, Users, BarChart2, Video, FileText, Headphones, Calendar, Search, Gift, Clock, Zap, Award, ArrowRight, RefreshCw } from 'lucide-react'
 import { supabase } from '../config/supabase'
 import emailjs from '@emailjs/browser'
 
@@ -421,61 +421,27 @@ function ServiceReviewPanel({ serviceId, serviceTitle }) {
 
 const Services = () => {
     const [openReviews, setOpenReviews] = useState(null)
+    const [servicesList, setServicesList] = useState([])
+    const [loadingServices, setLoadingServices] = useState(true)
 
-    const servicesList = [
-        {
-            id: "logos",
-            icon: <Layers size={28} className="text-brand-orange" />,
-            badge: null,
-            title: "Logo Designing",
-            tagline: "Craft a brand identity that commands respect.",
-            description: (
-                <>
-                    🎯 Start your brand journey with an iconic identity!
-                    <br /><br />
-                    Want a logo that makes your business look premium and trustworthy? 💎
-                    <br /><br />
-                    We specialize in creating powerful, memorable, and custom logos tailored to your brand's unique story. 🖌️
-                    <br /><br />
-                    <span className="font-bold text-brand-orange text-xl">💰 Logos: Starts from ₹1,500</span>
-                    <br /><br />
-                    Let's design a brand identity you'll be proud to show off!
-                </>
-            ),
-            pricing: "Starts from ₹1,500",
-            features: [
-                "✨ Custom, Unique Designs",
-                "📐 High-Resolution Vector Files",
-                "🎨 Strategic Color Psychology",
-                "📱 Scalable for Web & Print"
-            ]
-        },
-        {
-            id: "graphic-design",
-            icon: <Paintbrush size={28} className="text-brand-green" />,
-            badge: null,
-            title: "General Graphic Design",
-            tagline: "High-converting visuals for every marketing need.",
-            description: (
-                <>
-                    🎨 Need professional graphics for your business or marketing?
-                    <br /><br />
-                    From promotional materials to business stationery, we create high-converting designs that grab attention! 🔥
-                    <br /><br />
-                    <span className="font-bold text-brand-orange text-lg">💰 Flyers & Brochures: Starts from ₹1,000</span><br />
-                    <span className="font-bold text-brand-orange text-lg">💳 Business/Visiting Cards: Starts from ₹1,000</span>
-                    <br /><br />
-                    Upgrade your visual game today!
-                </>
-            ),
-            pricing: "Starts from ₹1,000",
-            features: [
-                "✨ Eye-Catching Flyers & Posters",
-                "🏢 Professional Business Cards",
-                "📱 Clean UI/Ad Creatives"
-            ]
+    useEffect(() => {
+        const fetchServices = async () => {
+            setLoadingServices(true)
+            try {
+                const { data, error } = await supabase
+                    .from('services')
+                    .select('*')
+                    .order('sort_order', { ascending: true })
+                if (error) throw error
+                setServicesList(data || [])
+            } catch (err) {
+                console.error('Failed to load services:', err)
+            } finally {
+                setLoadingServices(false)
+            }
         }
-    ]
+        fetchServices()
+    }, [])
 
     const toggleReviews = (id) => {
         setOpenReviews(prev => prev === id ? null : id)
@@ -483,7 +449,7 @@ const Services = () => {
 
     return (
         <>
-        <div className="bg-bg-light min-h-screen py-20 md:py-24">
+        <div className="bg-bg-light pt-20 md:pt-24 pb-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* ── Header ── */}
@@ -501,6 +467,36 @@ const Services = () => {
                 </div>
 
                 {/* ── Service Cards ── */}
+                {loadingServices ? (
+                    <div className="flex flex-col gap-8">
+                        {[1, 2].map(n => (
+                            <div key={n} className="bg-white rounded-2xl border border-gray-100 p-10 animate-pulse">
+                                <div className="flex gap-8">
+                                    <div className="w-64 flex-shrink-0 space-y-4">
+                                        <div className="w-14 h-14 bg-gray-200 rounded-xl" />
+                                        <div className="h-6 bg-gray-200 rounded-lg w-40" />
+                                        <div className="h-4 bg-gray-100 rounded w-32" />
+                                        <div className="h-8 bg-gray-200 rounded-full w-36" />
+                                    </div>
+                                    <div className="flex-grow space-y-3">
+                                        <div className="h-4 bg-gray-100 rounded w-full" />
+                                        <div className="h-4 bg-gray-100 rounded w-4/5" />
+                                        <div className="h-4 bg-gray-100 rounded w-3/5" />
+                                        <div className="grid grid-cols-2 gap-2 mt-4">
+                                            {[1,2,3,4].map(i => <div key={i} className="h-8 bg-gray-100 rounded-lg" />)}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                ) : servicesList.length === 0 ? (
+                    <div className="text-center py-20 border-2 border-dashed border-gray-200 rounded-2xl">
+                        <RefreshCw size={36} className="mx-auto mb-3 text-gray-300" />
+                        <p className="text-gray-500 font-semibold">No services added yet</p>
+                        <p className="text-gray-400 text-sm mt-1">Add services from the Admin Panel to display them here</p>
+                    </div>
+                ) : (
                 <div className="flex flex-col gap-8">
                     {servicesList.map((service, index) => (
                         <motion.div
@@ -510,7 +506,7 @@ const Services = () => {
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1, duration: 0.5, ease: 'easeOut' }}
                             className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100"
-                            style={{ borderLeft: '4px solid', borderLeftColor: index % 2 === 0 ? 'var(--brand-green, #22c55e)' : 'var(--brand-orange, #f97316)' }}
+                            style={{ borderLeft: '4px solid', borderLeftColor: service.icon_color === 'green' ? 'var(--brand-green, #22c55e)' : 'var(--brand-orange, #f97316)' }}
                         >
                             <div className="p-5 md:p-10 flex flex-col md:flex-row gap-6 md:gap-8">
 
@@ -518,7 +514,10 @@ const Services = () => {
                                 <div className="flex-shrink-0 flex flex-col items-start gap-3 md:gap-4 w-full md:w-64">
                                     <div className="flex items-center gap-3">
                                         <div className="p-3 rounded-xl bg-gray-50 border border-gray-100 group-hover:scale-110 transition-transform duration-300">
-                                            {service.icon}
+                                            {service.icon_color === 'green'
+                                                ? <Paintbrush size={28} className="text-brand-green" />
+                                                : <Layers size={28} className="text-brand-orange" />
+                                            }
                                         </div>
                                         {service.badge && (
                                             <span className="text-xs font-bold uppercase tracking-widest text-brand-orange bg-orange-50 border border-orange-100 px-3 py-1 rounded-full">
@@ -531,11 +530,13 @@ const Services = () => {
                                         <p className="text-sm text-gray-400 mt-1 italic">{service.tagline}</p>
                                     </div>
                                     {/* Pricing pill */}
-                                    <div className="mt-auto pt-2">
-                                        <span className="inline-block bg-gray-900 text-white text-sm font-semibold px-4 py-2 rounded-full">
-                                            {service.pricing}
-                                        </span>
-                                    </div>
+                                    {service.pricing && (
+                                        <div className="mt-auto pt-2">
+                                            <span className="inline-block bg-gray-900 text-white text-sm font-semibold px-4 py-2 rounded-full">
+                                                {service.pricing}
+                                            </span>
+                                        </div>
+                                    )}
                                 </div>
 
                                 {/* Divider */}
@@ -543,19 +544,23 @@ const Services = () => {
 
                                 {/* Right: Description + Features + Reviews */}
                                 <div className="flex-grow flex flex-col gap-5">
-                                    <p className="text-gray-600 leading-relaxed text-base">
-                                        {service.description}
-                                    </p>
+                                    {service.description && (
+                                        <p className="text-gray-600 leading-relaxed text-base whitespace-pre-line">
+                                            {service.description}
+                                        </p>
+                                    )}
 
                                     {/* Features */}
-                                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                        {service.features.map((feature, fIndex) => (
-                                            <li key={fIndex} className="flex items-center gap-2 text-sm font-medium text-text-dark bg-gray-50 rounded-lg px-3 py-2 border border-gray-100">
-                                                <CheckCircle size={14} className="text-brand-green flex-shrink-0" />
-                                                {feature}
-                                            </li>
-                                        ))}
-                                    </ul>
+                                    {Array.isArray(service.features) && service.features.length > 0 && (
+                                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                            {service.features.map((feature, fIndex) => (
+                                                <li key={fIndex} className="flex items-center gap-2 text-sm font-medium text-text-dark bg-gray-50 rounded-lg px-3 py-2 border border-gray-100">
+                                                    <CheckCircle size={14} className="text-brand-green flex-shrink-0" />
+                                                    {feature}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
 
                                     {/* ── Toggle Reviews Button ── */}
                                     <button
@@ -595,6 +600,7 @@ const Services = () => {
                         </motion.div>
                     ))}
                 </div>
+                )}
 
             </div>
         </div>

@@ -1,155 +1,32 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Sparkles, ExternalLink } from 'lucide-react'
+import { Sparkles, ExternalLink, RefreshCw } from 'lucide-react'
+import { supabase } from '../config/supabase'
 
-const clients = [
-    {
-        logo: '/logos/logo-oso-real-estates.jpg',
-        name: 'OSO Real Estates',
-        tagline: 'Where Every Home Tells a Story',
-        industry: 'Real Estate',
-        color: '#0ea5e9',
-        bg: 'from-sky-50 to-blue-50',
-        border: 'border-sky-200',
-        badge: 'bg-sky-100 text-sky-700',
-    },
-    {
-        logo: '/logos/logo-vivah-utshav.jpg',
-        name: 'Vivah Utshav',
-        tagline: 'Turning Dream Weddings Into Timeless Memories',
-        industry: 'Wedding Solutions',
-        color: '#b45309',
-        bg: 'from-amber-50 to-rose-50',
-        border: 'border-amber-200',
-        badge: 'bg-amber-100 text-amber-700',
-    },
-    {
-        logo: '/logos/logo-vl-boutique.jpg',
-        name: 'VL Boutique',
-        tagline: 'Style That Speaks Before You Do',
-        industry: 'Fashion & Apparel',
-        color: '#ec4899',
-        bg: 'from-pink-50 to-orange-50',
-        border: 'border-pink-200',
-        badge: 'bg-pink-100 text-pink-700',
-    },
-    {
-        logo: '/logos/logo-amla-cubes.jpg',
-        name: 'AmlaCubes',
-        tagline: 'Nature\'s Power, Cubed to Perfection',
-        industry: 'Health & Wellness',
-        color: '#16a34a',
-        bg: 'from-green-50 to-emerald-50',
-        border: 'border-green-200',
-        badge: 'bg-green-100 text-green-700',
-    },
-    {
-        logo: '/logos/logo-mr-realty-talks.jpg',
-        name: 'MR Realty Talks',
-        tagline: 'Turning Properties Into Profits',
-        industry: 'Real Estate',
-        color: '#f59e0b',
-        bg: 'from-yellow-50 to-gray-100',
-        border: 'border-yellow-300',
-        badge: 'bg-yellow-100 text-yellow-700',
-    },
-    {
-        logo: '/logos/logo-d-boutique.jpg',
-        name: 'D Boutique',
-        tagline: 'Elegance Is Always In Season',
-        industry: 'Bridal Fashion',
-        color: '#7c3aed',
-        bg: 'from-purple-50 to-pink-50',
-        border: 'border-purple-200',
-        badge: 'bg-purple-100 text-purple-700',
-    },
-    {
-        logo: '/logos/logo-ms-cell-point.jpg',
-        name: 'MS Cell Point',
-        tagline: 'Your One-Stop Destination for Premium Gadgets',
-        industry: 'Electronics & Tech',
-        color: '#ca8a04',
-        bg: 'from-gray-900 to-gray-800',
-        border: 'border-yellow-500/40',
-        badge: 'bg-yellow-900/30 text-yellow-400',
-        dark: true,
-    },
-    {
-        logo: '/logos/logo-house-of-maha.jpg',
-        name: 'House of Maha',
-        tagline: 'Drape Yourself in Culture and Grace',
-        industry: 'Ethnic Wear',
-        color: '#b91c1c',
-        bg: 'from-red-50 to-amber-50',
-        border: 'border-red-200',
-        badge: 'bg-red-100 text-red-700',
-    },
-    {
-        logo: '/logos/logo-1z-realty.jpg',
-        name: '1Z Realty',
-        tagline: 'Homes · Investments · Trust',
-        industry: 'Real Estate',
-        color: '#ca8a04',
-        bg: 'from-gray-900 to-gray-800',
-        border: 'border-yellow-500/40',
-        badge: 'bg-yellow-900/30 text-yellow-400',
-        dark: true,
-    },
-    {
-        logo: '/logos/logo-astrologer-ramaraju.jpg',
-        name: 'Astrologer Ramaraju',
-        tagline: 'Ancient Wisdom, Timeless Guidance',
-        industry: 'Astrology & Spirituality',
-        color: '#92400e',
-        bg: 'from-amber-50 to-yellow-50',
-        border: 'border-amber-300',
-        badge: 'bg-amber-100 text-amber-800',
-    },
-    {
-        logo: '/logos/logo-sri-mahalakshmi-traders.jpg',
-        name: 'Sri Mahalakshmi Traders',
-        tagline: 'Building the Future, Block by Block',
-        industry: 'Hardware & Cement',
-        color: '#1d4ed8',
-        bg: 'from-blue-50 to-indigo-50',
-        border: 'border-blue-200',
-        badge: 'bg-blue-100 text-blue-700',
-    },
-    {
-        logo: '/logos/logo-vjpt.jpg',
-        name: 'VJPT Trustworthy Products',
-        tagline: 'Quality You Can Trust, Purity You Can Feel',
-        industry: 'Wellness Products',
-        color: '#15803d',
-        bg: 'from-green-50 to-lime-50',
-        border: 'border-green-300',
-        badge: 'bg-green-100 text-green-700',
-    },
-    {
-        logo: '/logos/logo-divya-jewelers.jpg',
-        name: 'Divya Jewelers',
-        tagline: 'Where Gold Meets Glory',
-        industry: 'Jewellery',
-        color: '#b45309',
-        bg: 'from-gray-900 to-gray-800',
-        border: 'border-yellow-500/50',
-        badge: 'bg-yellow-900/40 text-yellow-400',
-        dark: true,
-    },
-    {
-        logo: '/logos/logo-avigna.jpg',
-        name: 'Avigna',
-        tagline: 'Wrap Yourself in Tradition, Walk in Style',
-        industry: 'Sarees & Dress',
-        color: '#db2777',
-        bg: 'from-pink-50 to-rose-50',
-        border: 'border-pink-300',
-        badge: 'bg-pink-100 text-pink-700',
-    },
-]
 
 const Portfolio = () => {
     const [hoveredIndex, setHoveredIndex] = useState(null)
+    const [clients, setClients] = useState([])
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        const fetchClients = async () => {
+            setLoading(true)
+            try {
+                const { data, error } = await supabase
+                    .from('portfolio_clients')
+                    .select('*')
+                    .order('sort_order', { ascending: true })
+                if (error) throw error
+                setClients(data || [])
+            } catch (err) {
+                console.error('Failed to load portfolio clients:', err)
+            } finally {
+                setLoading(false)
+            }
+        }
+        fetchClients()
+    }, [])
 
     return (
         <div className="bg-bg-light min-h-screen">
@@ -224,10 +101,32 @@ const Portfolio = () => {
             {/* ── Client Logos Grid ── */}
             <section className="pb-24 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-7xl mx-auto">
+                    {loading ? (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                            {[...Array(6)].map((_, i) => (
+                                <div key={i} className="rounded-3xl border-2 border-gray-100 overflow-hidden animate-pulse">
+                                    <div className="h-56 bg-gray-100 flex items-center justify-center">
+                                        <div className="w-36 h-36 bg-gray-200 rounded-2xl" />
+                                    </div>
+                                    <div className="px-6 py-5 space-y-2 border-t border-gray-100">
+                                        <div className="h-5 bg-gray-200 rounded w-3/4" />
+                                        <div className="h-4 bg-gray-100 rounded w-full" />
+                                        <div className="h-1 bg-gray-100 rounded-full mt-3" />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    ) : clients.length === 0 ? (
+                        <div className="text-center py-24 border-2 border-dashed border-gray-200 rounded-3xl">
+                            <Sparkles size={40} className="mx-auto mb-3 text-gray-300" />
+                            <p className="text-gray-500 font-semibold text-lg">No portfolio clients yet</p>
+                            <p className="text-gray-400 text-sm mt-1">Add clients from the Admin Panel to display them here</p>
+                        </div>
+                    ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 md:gap-8">
                         {clients.map((client, index) => (
                             <motion.div
-                                key={client.name}
+                                key={client.id || client.name}
                                 initial={{ opacity: 0, y: 40 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: '-80px' }}
@@ -237,13 +136,17 @@ const Portfolio = () => {
                                 className="group relative"
                             >
                                 <div
-                                    className={`relative rounded-3xl border-2 ${client.border} overflow-hidden transition-all duration-500
+                                    className={`relative rounded-3xl border-2 ${
+                                        client.border_class || client.border || 'border-orange-200'
+                                    } overflow-hidden transition-all duration-500
                                         ${hoveredIndex === index ? 'shadow-2xl -translate-y-2 scale-[1.02]' : 'shadow-sm'}
                                         bg-gradient-to-br ${client.bg}`}
                                 >
                                     {/* Industry Badge */}
                                     <div className="absolute top-5 left-5 z-10">
-                                        <span className={`inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full ${client.badge}`}>
+                                        <span className={`inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full ${
+                                            client.badge_class || client.badge || 'bg-orange-100 text-orange-700'
+                                        }`}>
                                             {client.industry}
                                         </span>
                                     </div>
@@ -251,7 +154,7 @@ const Portfolio = () => {
                                     {/* Logo Display */}
                                     <div className="relative flex items-center justify-center h-56 md:h-64 p-8 pt-14">
                                         <motion.img
-                                            src={client.logo}
+                                            src={client.logo_url}
                                             alt={`${client.name} Logo`}
                                             className="w-36 h-36 md:w-44 md:h-44 object-cover rounded-2xl shadow-lg"
                                             animate={{
@@ -274,7 +177,9 @@ const Portfolio = () => {
                                     />
 
                                     {/* Info Section */}
-                                    <div className={`px-6 pb-7 pt-1 border-t-2 ${client.border} ${client.dark ? 'border-white/10' : ''}`}>
+                                    <div className={`px-6 pb-7 pt-1 border-t-2 ${
+                                        client.border_class || client.border || 'border-orange-200'
+                                    } ${client.dark ? 'border-white/10' : ''}`}>
                                         <div className="flex items-start justify-between gap-3">
                                             <div>
                                                 <h3 className={`text-xl font-extrabold mb-1 leading-tight ${client.dark ? 'text-white' : 'text-text-dark'}`}>
@@ -313,6 +218,7 @@ const Portfolio = () => {
                             </motion.div>
                         ))}
                     </div>
+                    )}
                 </div>
             </section>
 
