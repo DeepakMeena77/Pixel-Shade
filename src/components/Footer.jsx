@@ -48,25 +48,7 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Company Column */}
-                    <div>
-                        <h4 className="text-xs font-extrabold uppercase tracking-widest text-brand-orange mb-5">
-                            Company
-                        </h4>
-                        <ul className="space-y-3">
-                            {[
-                                { label: 'About',     href: '/about'     },
-                                { label: 'Portfolio', href: '/portfolio' },
-                                { label: 'Contact',   href: '/contact'   },
-                            ].map(({ label, href }) => (
-                                <li key={label}>
-                                    <a href={href} className="text-gray-400 hover:text-white transition-colors text-sm">
-                                        {label}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+
                 </div>
 
                 {/* ── Bottom bar ── */}

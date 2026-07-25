@@ -746,8 +746,8 @@ const Services = () => {
                             }`}
                         >
                             {plan.popular && (
-                                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                                    <span className="bg-yellow-400 text-gray-900 text-xs font-extrabold uppercase tracking-widest px-5 py-1.5 rounded-full shadow-lg">
+                                <div className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap">
+                                    <span className="bg-yellow-400 text-gray-900 text-xs font-extrabold uppercase tracking-widest px-5 py-1.5 rounded-full shadow-lg whitespace-nowrap">
                                         ⭐ Most Popular
                                     </span>
                                 </div>

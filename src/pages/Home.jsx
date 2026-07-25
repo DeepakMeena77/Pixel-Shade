@@ -6,20 +6,20 @@ import { supabase } from '../config/supabase'
 
 // Fallback logos (used only if DB is empty / loading)
 const FALLBACK_CLIENTS = [
-    { name: 'OSO Real Estates',         logo_url: '/logos/logo-oso-real-estates.webp' },
-    { name: 'Vivah Utshav',             logo_url: '/logos/logo-vivah-utshav.webp' },
-    { name: 'VL Boutique',              logo_url: '/logos/logo-vl-boutique.webp' },
-    { name: 'AmlaCubes',                logo_url: '/logos/logo-amla-cubes.webp' },
-    { name: 'MR Realty Talks',          logo_url: '/logos/logo-mr-realty-talks.webp' },
-    { name: 'D Boutique',               logo_url: '/logos/logo-d-boutique.webp' },
-    { name: 'MS Cell Point',            logo_url: '/logos/logo-ms-cell-point.webp' },
-    { name: 'House of Maha',            logo_url: '/logos/logo-house-of-maha.webp' },
-    { name: '1Z Realty',                logo_url: '/logos/logo-1z-realty.webp' },
-    { name: 'Astrologer Ramaraju',      logo_url: '/logos/logo-astrologer-ramaraju.webp' },
-    { name: 'Sri Mahalakshmi Traders',  logo_url: '/logos/logo-sri-mahalakshmi-traders.webp' },
-    { name: 'VJPT',                     logo_url: '/logos/logo-vjpt.webp' },
-    { name: 'Divya Jewelers',           logo_url: '/logos/logo-divya-jewelers.webp' },
-    { name: 'Avigna',                   logo_url: '/logos/logo-avigna.webp' },
+    { name: 'OSO Real Estates',         logo_url: '/logos/logo-oso-real-estates.png' },
+    { name: 'Vivah Utshav',             logo_url: '/logos/logo-vivah-utshav.png' },
+    { name: 'VL Boutique',              logo_url: '/logos/logo-vl-boutique.png' },
+    { name: 'AmlaCubes',                logo_url: '/logos/logo-amla-cubes.png' },
+    { name: 'MR Realty Talks',          logo_url: '/logos/logo-mr-realty-talks.png' },
+    { name: 'D Boutique',               logo_url: '/logos/logo-d-boutique.png' },
+    { name: 'MS Cell Point',            logo_url: '/logos/logo-ms-cell-point.png' },
+    { name: 'House of Maha',            logo_url: '/logos/logo-house-of-maha.png' },
+    { name: '1Z Realty',                logo_url: '/logos/logo-1z-realty.png' },
+    { name: 'Astrologer Ramaraju',      logo_url: '/logos/logo-astrologer-ramaraju.png' },
+    { name: 'Sri Mahalakshmi Traders',  logo_url: '/logos/logo-sri-mahalakshmi-traders.png' },
+    { name: 'Moofreshmilk',             logo_url: '/logos/logo-moofreshmilk.png' },
+    { name: 'Divya Jewelers',           logo_url: '/logos/logo-divya-jewelers.png' },
+    { name: 'Avigna',                   logo_url: '/logos/logo-avigna.png' },
 ]
 
 const processSteps = [
