@@ -178,7 +178,7 @@ const Home = () => {
                         {[...clients, ...clients].map((c, i) => (
                             <div
                                 key={i}
-                                className="flex-shrink-0 flex items-center justify-center w-24 h-16 bg-gray-50 rounded-xl border border-gray-100 p-2 hover:border-orange-200 hover:shadow-sm transition-all"
+                                className="flex-shrink-0 flex items-center justify-center w-20 h-20 bg-gray-50 rounded-full border border-gray-100 overflow-hidden hover:border-orange-200 hover:shadow-sm transition-all"
                                 title={c.name}
                             >
                                 <img
