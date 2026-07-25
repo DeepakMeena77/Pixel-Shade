@@ -168,23 +168,40 @@ const Home = () => {
                     </p>
                 </div>
 
-                {/* Infinite marquee */}
-                <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
-                    <motion.div
-                        className="flex gap-8 shrink-0"
-                        animate={{ x: ['0%', '-50%'] }}
-                        transition={{ duration: 28, ease: 'linear', repeat: Infinity }}
-                    >
+                {/* Infinite marquee — pure CSS for buttery-smooth GPU animation */}
+                <style>{`
+                    @keyframes marquee-scroll {
+                        0%   { transform: translate3d(0, 0, 0); }
+                        100% { transform: translate3d(-50%, 0, 0); }
+                    }
+                    .marquee-track {
+                        display: flex;
+                        gap: 2rem;
+                        width: max-content;
+                        animation: marquee-scroll 30s linear infinite;
+                        will-change: transform;
+                    }
+                    .marquee-track:hover {
+                        animation-play-state: paused;
+                    }
+                `}</style>
+
+                <div
+                    className="relative flex overflow-hidden"
+                    style={{ maskImage: 'linear-gradient(to right, transparent, white 10%, white 90%, transparent)' }}
+                >
+                    <div className="marquee-track">
                         {[...clients, ...clients].map((c, i) => (
                             <div
                                 key={i}
-                                className="flex-shrink-0 flex items-center justify-center w-20 h-20 bg-gray-50 rounded-full border border-gray-100 overflow-hidden hover:border-orange-200 hover:shadow-sm transition-all"
+                                className="flex-shrink-0 flex items-center justify-center w-24 h-24 rounded-full overflow-hidden hover:shadow-md transition-shadow duration-300"
                                 title={c.name}
                             >
                                 <img
                                     src={c.logo_url}
                                     alt={c.name}
-                                    className="w-full h-full object-contain"
+                                    className="w-full h-full object-cover"
+                                    loading="lazy"
                                     onError={(e) => {
                                         e.target.style.display = 'none'
                                         e.target.parentElement.innerHTML = `<span style="font-size:10px;font-weight:700;color:#9ca3af;text-align:center;line-height:1.2">${c.name}</span>`
@@ -192,7 +209,7 @@ const Home = () => {
                                 />
                             </div>
                         ))}
-                    </motion.div>
+                    </div>
                 </div>
             </section>
 
