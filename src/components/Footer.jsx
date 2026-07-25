@@ -22,7 +22,7 @@ const Footer = () => {
                             </span>
                         </div>
                         <p className="mt-4 text-gray-400 text-sm leading-relaxed max-w-sm">
-                            Creative Digital Services. No elevation. No gradients. Just bold design that drives real results.
+                            A performance-driven digital marketing agency helping brands grow online through SEO, paid ads, social media, and content strategies that convert.
                         </p>
                     </div>
 
@@ -33,11 +33,31 @@ const Footer = () => {
                         </h4>
                         <ul className="space-y-3">
                             {[
-                                { label: 'Logo Designing',   href: '/services' },
-                                { label: 'Graphic Design',   href: '/services' },
-                                { label: 'Social Media',     href: '/services' },
-                                { label: 'Invitation Cards', href: '/services' },
-                                { label: 'Brand Strategy',   href: '/services' },
+                                { label: 'SEO & Organic Growth', href: '/services' },
+                                { label: 'Paid Ads',             href: '/services' },
+                                { label: 'Social Media',         href: '/services' },
+                                { label: 'Content Marketing',    href: '/services' },
+                                { label: 'Brand Strategy',       href: '/services' },
+                            ].map(({ label, href }) => (
+                                <li key={label}>
+                                    <a href={href} className="text-gray-400 hover:text-white transition-colors text-sm">
+                                        {label}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Company Column */}
+                    <div>
+                        <h4 className="text-xs font-extrabold uppercase tracking-widest text-brand-green mb-5">
+                            Company
+                        </h4>
+                        <ul className="space-y-3">
+                            {[
+                                { label: 'About',        href: '/about' },
+                                { label: 'Case Studies', href: '/portfolio' },
+                                { label: 'Contact',      href: '/contact' },
                             ].map(({ label, href }) => (
                                 <li key={label}>
                                     <a href={href} className="text-gray-400 hover:text-white transition-colors text-sm">

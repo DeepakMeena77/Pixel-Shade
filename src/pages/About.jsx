@@ -58,19 +58,19 @@ const About = () => {
                                 About Pixel Shade
                             </span>
                             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-text-dark leading-tight mb-6">
-                                The Creative Studio <br />Behind{' '}
+                                The Digital Marketing Agency <br />Behind{' '}
                                 <span className="text-brand-orange">Your Brand.</span>
                             </h1>
                             <div className="space-y-5 text-base md:text-lg text-gray-600 leading-relaxed mb-10">
                                 <p>
-                                    Pixel Shade is a boutique creative studio built on one uncompromising belief:{' '}
-                                    <span className="font-bold text-text-dark">design must perform as powerfully as it looks.</span>
+                                    Pixel Shade is a performance-driven digital marketing agency built on one uncompromising belief:{' '}
+                                    <span className="font-bold text-text-dark">your brand must grow as powerfully online as it looks.</span>
                                 </p>
                                 <p>
-                                    We specialise in brand identity, social media marketing, custom invitation design, and conversion-focused ad creatives — serving businesses that refuse to be ordinary.
+                                    We specialise in SEO & organic growth, paid advertising, social media management, content marketing, and conversion-focused strategies — serving businesses that refuse to blend in.
                                 </p>
                                 <p>
-                                    Every project we take on is approached with the same rigour: zero templates, deep research, and a relentless focus on your audience's response.
+                                    Every campaign we run is built from deep research, data-backed decisions, and a relentless focus on measurable results for your business.
                                 </p>
                             </div>
 
@@ -111,8 +111,8 @@ const About = () => {
                                 {/* Name tag */}
                                 <div className="absolute bottom-6 left-6 right-6 z-20">
                                     <div className="bg-white/90 backdrop-blur-sm rounded-2xl px-5 py-4 border border-white/60">
-                                        <p className="font-extrabold text-text-dark text-lg leading-tight">Pixel Shade Studio</p>
-                                        <p className="text-gray-500 text-sm font-medium">Creative Director & Founder</p>
+                                        <p className="font-extrabold text-text-dark text-lg leading-tight">Pixel Shade Agency</p>
+                                        <p className="text-gray-500 text-sm font-medium">Digital Marketing Director & Founder</p>
                                     </div>
                                 </div>
                             </div>
