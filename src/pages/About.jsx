@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import {
-    Star, CheckCircle, TrendingUp, Quote, Award, Users, Clock,
+    Star, TrendingUp, Quote, Award, Users, Clock,
     Target, Layers, Zap, ArrowRight, Palette, BarChart2, MessageCircle
 } from 'lucide-react'
 
@@ -209,34 +209,64 @@ const About = () => {
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
 
-                        {/* SMM Result */}
+                        {/* Startup — NestNow */}
                         <motion.div whileHover={{ scale: 1.01 }} className="bg-white rounded-[2rem] border-2 border-gray-100 p-8 flex flex-col shadow-sm hover:shadow-md transition-all">
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="w-14 h-14 rounded-full bg-gradient-to-tr from-yellow-400 to-pink-500 p-0.5">
-                                    <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
-                                        <img src="/logo.jpg.webp" alt="Client" className="w-full h-full object-contain" />
-                                    </div>
-                                </div>
+                            <div className="flex items-center gap-4 mb-3">
+                                <div className="w-14 h-14 rounded-full bg-gradient-to-tr from-violet-500 to-indigo-400 flex items-center justify-center text-white font-black text-xl shadow-md">N</div>
                                 <div className="flex-1">
-                                    <h3 className="text-base font-bold text-text-dark">Rohan K.</h3>
-                                    <p className="text-gray-400 text-xs font-medium">@rohank_apparel · SMM Client</p>
+                                    <h3 className="text-base font-bold text-text-dark">NestNow</h3>
+                                    <p className="text-gray-400 text-xs font-medium">PropTech Startup · Social Media Management</p>
                                 </div>
                                 <div className="flex text-orange-400 gap-0.5">
                                     {[...Array(5)].map((_, j) => <Star key={j} size={14} fill="currentColor" />)}
                                 </div>
                             </div>
+                            <span className="inline-block self-start text-[10px] font-bold uppercase tracking-widest text-violet-600 bg-violet-50 border border-violet-200 px-3 py-1 rounded-full mb-5">🚀 Startup</span>
 
                             <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 mb-6 relative">
                                 <Quote size={28} className="text-gray-200 absolute -top-3 -left-3 bg-white rounded-full p-1" />
                                 <p className="text-gray-700 italic text-sm font-medium leading-relaxed relative z-10">
-                                    "PixelShade completely transformed our Instagram. We went from struggling for views to a massive 300% growth in reach in just one month. Best ROI ever."
+                                    "We launched with zero social presence. Within 60 days of working with PixelShade, our Instagram crossed 10K followers organically and our lead pipeline doubled. Insane results for a seed-stage startup."
+                                </p>
+                            </div>
+
+                            <div className="mt-auto grid grid-cols-2 gap-3">
+                                <div className="bg-text-dark text-white p-4 rounded-xl">
+                                    <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mb-1">Followers Gained</p>
+                                    <p className="text-2xl font-black">10.4K <span className="text-green-400 text-xs font-bold ml-1">📈</span></p>
+                                </div>
+                                <div className="bg-violet-600 text-white p-4 rounded-xl">
+                                    <p className="text-xs text-violet-200 uppercase tracking-widest font-bold mb-1">Leads Generated</p>
+                                    <p className="text-2xl font-black">+214%</p>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        {/* Small Business — Brew & Bloom Café */}
+                        <motion.div whileHover={{ scale: 1.01 }} className="bg-white rounded-[2rem] border-2 border-gray-100 p-8 flex flex-col shadow-sm hover:shadow-md transition-all">
+                            <div className="flex items-center gap-4 mb-3">
+                                <div className="w-14 h-14 rounded-full bg-gradient-to-tr from-amber-400 to-orange-400 flex items-center justify-center text-white font-black text-xl shadow-md">B</div>
+                                <div className="flex-1">
+                                    <h3 className="text-base font-bold text-text-dark">Brew &amp; Bloom Café</h3>
+                                    <p className="text-gray-400 text-xs font-medium">Local Café Chain · Instagram &amp; Meta Ads</p>
+                                </div>
+                                <div className="flex text-orange-400 gap-0.5">
+                                    {[...Array(5)].map((_, j) => <Star key={j} size={14} fill="currentColor" />)}
+                                </div>
+                            </div>
+                            <span className="inline-block self-start text-[10px] font-bold uppercase tracking-widest text-amber-700 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full mb-5">🏪 Small Business</span>
+
+                            <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 mb-6 relative">
+                                <Quote size={28} className="text-gray-200 absolute -top-3 -left-3 bg-white rounded-full p-1" />
+                                <p className="text-gray-700 italic text-sm font-medium leading-relaxed relative z-10">
+                                    "Our footfall was dropping post-COVID. PixelShade ran a hyper-local Instagram campaign and within 3 weeks our weekend tables were fully booked. The Reels they created went viral locally — 180K views on a single post!"
                                 </p>
                             </div>
 
                             <div className="mt-auto bg-text-dark text-white p-5 rounded-xl flex items-center justify-between">
                                 <div>
-                                    <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mb-1">Accounts Reached</p>
-                                    <p className="text-3xl font-black">124K <span className="text-green-400 text-sm font-bold ml-2 bg-green-900/30 px-2 py-0.5 rounded-md">+342% 📈</span></p>
+                                    <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mb-1">Reel Views (Single Post)</p>
+                                    <p className="text-3xl font-black">180K <span className="text-orange-400 text-sm font-bold ml-2 bg-orange-900/30 px-2 py-0.5 rounded-md">+520% reach 📈</span></p>
                                 </div>
                                 <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center border-2 border-gray-700">
                                     <TrendingUp size={20} className="text-white" />
@@ -244,104 +274,43 @@ const About = () => {
                             </div>
                         </motion.div>
 
-                        {/* Wedding Invitation */}
-                        <motion.div whileHover={{ scale: 1.01 }} className="bg-white rounded-[2rem] border-2 border-gray-100 p-8 flex flex-col shadow-sm hover:shadow-md transition-all">
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="w-14 h-14 rounded-full bg-gray-100 overflow-hidden border-2 border-gray-100">
-                                    <img src="/wedding-5.webp" alt="Client" className="w-full h-full object-cover" />
-                                </div>
+                        {/* Big Company — ZenithRetail Group */}
+                        <motion.div whileHover={{ scale: 1.01 }} className="bg-white rounded-[2rem] border-2 border-gray-100 p-8 flex flex-col shadow-sm hover:shadow-md transition-all lg:col-span-2">
+                            <div className="flex items-center gap-4 mb-3">
+                                <div className="w-14 h-14 rounded-full bg-gradient-to-tr from-slate-700 to-slate-900 flex items-center justify-center text-white font-black text-xl shadow-md">Z</div>
                                 <div className="flex-1">
-                                    <h3 className="text-base font-bold text-text-dark">Priya & Arjun</h3>
-                                    <p className="text-gray-400 text-xs font-medium">Wedding Invitation Package</p>
+                                    <h3 className="text-base font-bold text-text-dark">ZenithRetail Group</h3>
+                                    <p className="text-gray-400 text-xs font-medium">National Retail Chain · Full-Scale Social Media Marketing</p>
                                 </div>
                                 <div className="flex text-orange-400 gap-0.5">
                                     {[...Array(5)].map((_, j) => <Star key={j} size={14} fill="currentColor" />)}
                                 </div>
                             </div>
-
-                            <div className="bg-[#e5ddd5] rounded-2xl p-4 flex flex-col gap-3 mb-6 relative overflow-hidden flex-1">
-                                <div
-                                    className="absolute inset-0 opacity-10"
-                                    style={{ backgroundImage: "url('https://wallpapers.com/images/hd/whatsapp-chat-background-wd8hpx3f6z7e6g3i.jpg')", backgroundSize: 'cover' }}
-                                />
-                                <div className="bg-white p-2 pb-5 rounded-2xl rounded-tr-none shadow-sm max-w-[85%] self-end relative z-10 border border-gray-200">
-                                    <img src="/wedding-1.webp" className="rounded-xl w-full max-w-[180px] mb-2 border border-gray-100" alt="invitation" />
-                                    <p className="text-xs font-medium text-gray-800 pr-2">OMG! 😭 The cards just arrived and they look even better in print. Everyone is asking who made them! ❤️</p>
-                                    <span className="text-[10px] text-gray-400 absolute bottom-1 right-2">10:42 AM <span className="text-blue-500">✓✓</span></span>
-                                </div>
-                                <div className="bg-[#dcf8c6] p-3 pb-5 rounded-2xl rounded-tl-none shadow-sm max-w-[80%] self-start relative z-10 border border-green-200">
-                                    <p className="text-xs font-medium text-gray-800 pr-2">That makes us so happy! Have an amazing wedding! 🎉</p>
-                                    <span className="text-[10px] text-gray-500 absolute bottom-1 right-2">10:50 AM</span>
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        {/* Logo Design */}
-                        <motion.div whileHover={{ scale: 1.01 }} className="bg-white rounded-[2rem] border-2 border-gray-100 p-8 flex flex-col shadow-sm hover:shadow-md transition-all">
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="w-14 h-14 rounded-full bg-gray-900 border-2 border-gray-100 flex items-center justify-center text-white font-black text-xl">T</div>
-                                <div className="flex-1">
-                                    <h3 className="text-base font-bold text-text-dark">TechFlow Inc.</h3>
-                                    <p className="text-gray-400 text-xs font-medium">Brand Identity Client</p>
-                                </div>
-                                <div className="flex text-orange-400 gap-0.5">
-                                    {[...Array(5)].map((_, j) => <Star key={j} size={14} fill="currentColor" />)}
-                                </div>
-                            </div>
+                            <span className="inline-block self-start text-[10px] font-bold uppercase tracking-widest text-slate-700 bg-slate-100 border border-slate-300 px-3 py-1 rounded-full mb-5">🏢 Enterprise</span>
 
                             <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 mb-6 relative">
                                 <Quote size={28} className="text-gray-200 absolute -top-3 -left-3 bg-white rounded-full p-1" />
                                 <p className="text-gray-700 italic text-sm font-medium leading-relaxed relative z-10">
-                                    "We needed a fresh identity that looked premium. PixelShade nailed the minimal aesthetic on the very first concept. Outstanding work. 10/10 would hire again."
+                                    "We manage over 14 outlet locations and needed a consistent, premium social media presence across all platforms simultaneously. PixelShade delivered a unified content strategy, managed our paid ad spend of ₹8L/month, and drove a 4.2X return on ad spend within the first quarter. Their reporting is transparent, their team is proactive, and the creative quality rivals agencies 5× their size. They are now our long-term digital growth partner."
                                 </p>
                             </div>
 
-                            <div className="mt-auto bg-gray-50 border-2 border-gray-100 p-4 rounded-xl flex items-center justify-between">
-                                <div className="flex items-center gap-3">
-                                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm border border-gray-100">
-                                        <img src="/logo.jpg.webp" alt="Logo Proof" className="w-8 h-8 object-contain" />
-                                    </div>
-                                    <div>
-                                        <p className="text-sm font-bold text-gray-800">Brand_Assets_Final.zip</p>
-                                        <p className="text-xs text-gray-400 font-medium">24.5 MB · Approved</p>
-                                    </div>
-                                </div>
-                                <div className="bg-green-100 text-brand-green p-2.5 rounded-full">
-                                    <CheckCircle size={18} />
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        {/* Ad Campaign */}
-                        <motion.div whileHover={{ scale: 1.01 }} className="bg-white rounded-[2rem] border-2 border-gray-100 p-8 flex flex-col shadow-sm hover:shadow-md transition-all">
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="w-14 h-14 rounded-full bg-blue-50 overflow-hidden border-2 border-gray-100">
-                                    <img src="/wedding-3.webp" alt="Client" className="w-full h-full object-cover" />
-                                </div>
-                                <div className="flex-1">
-                                    <h3 className="text-base font-bold text-text-dark">Mark V.</h3>
-                                    <p className="text-gray-400 text-xs font-medium">Event Organizer · Ad Creatives</p>
-                                </div>
-                                <div className="flex text-orange-400 gap-0.5">
-                                    {[...Array(5)].map((_, j) => <Star key={j} size={14} fill="currentColor" />)}
-                                </div>
-                            </div>
-
-                            <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 mb-6 relative">
-                                <Quote size={28} className="text-gray-200 absolute -top-3 -left-3 bg-white rounded-full p-1" />
-                                <p className="text-gray-700 italic text-sm font-medium leading-relaxed relative z-10">
-                                    "The flyers and ad creatives they designed doubled our event sign-ups. The quality is unmatched for the price point. Very responsive and highly recommended."
-                                </p>
-                            </div>
-
-                            <div className="mt-auto grid grid-cols-2 gap-4">
-                                <div className="bg-brand-orange text-white p-5 rounded-xl">
-                                    <p className="text-xs text-orange-200 font-bold uppercase tracking-wider mb-1">Click-Through Rate</p>
-                                    <p className="text-3xl font-black">6.4%</p>
-                                </div>
+                            <div className="mt-auto grid grid-cols-2 md:grid-cols-4 gap-4">
                                 <div className="bg-text-dark text-white p-5 rounded-xl">
-                                    <p className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Creative Score</p>
-                                    <p className="text-3xl font-black text-brand-green">10/10</p>
+                                    <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mb-1">ROAS</p>
+                                    <p className="text-3xl font-black text-brand-green">4.2×</p>
+                                </div>
+                                <div className="bg-brand-orange text-white p-5 rounded-xl">
+                                    <p className="text-xs text-orange-200 uppercase tracking-widest font-bold mb-1">Monthly Ad Spend Managed</p>
+                                    <p className="text-3xl font-black">₹8L</p>
+                                </div>
+                                <div className="bg-slate-800 text-white p-5 rounded-xl">
+                                    <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mb-1">Total Impressions / Qtr</p>
+                                    <p className="text-3xl font-black">18M+</p>
+                                </div>
+                                <div className="bg-green-600 text-white p-5 rounded-xl">
+                                    <p className="text-xs text-green-100 uppercase tracking-widest font-bold mb-1">Engagement Rate</p>
+                                    <p className="text-3xl font-black">9.8%</p>
                                 </div>
                             </div>
                         </motion.div>
