@@ -1021,12 +1021,35 @@ function ReviewsTab() {
     const deleteReview = async (id) => {
         if (!window.confirm('Permanently delete this review?')) return
         setActionLoading(id + 'delete')
+        // Save snapshot so we can revert the optimistic removal if delete fails
+        let snapshot
+        setReviews(prev => { snapshot = prev; return prev.filter(r => r.id !== id) })
         try {
             const { error } = await supabase.from('reviews').delete().eq('id', id)
             if (error) throw error
-            setReviews(prev => prev.filter(r => r.id !== id))
+
+            // Verify the row was actually removed — Supabase RLS can silently
+            // block a delete (no error returned, but 0 rows affected). This
+            // causes the review to vanish from the admin UI yet remain in the DB.
+            const { data: stillExists } = await supabase
+                .from('reviews')
+                .select('id')
+                .eq('id', id)
+                .maybeSingle()
+
+            if (stillExists) {
+                setReviews(snapshot)
+                alert(
+                    '\u274C Delete was blocked by the Supabase RLS policy.\n\n' +
+                    'Fix: In Supabase → Table Editor → reviews → Policies,\n' +
+                    'add a DELETE policy for the "anon" role with:\n' +
+                    'USING (true)'
+                )
+            }
         } catch (err) {
+            setReviews(snapshot)
             console.error('Delete error:', err)
+            alert('\u274C Could not delete review: ' + err.message)
         } finally {
             setActionLoading(null)
         }

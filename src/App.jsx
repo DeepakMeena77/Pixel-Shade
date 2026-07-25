@@ -8,7 +8,6 @@ const Services = lazy(() => import('./pages/Services'))
 const Portfolio = lazy(() => import('./pages/Portfolio'))
 const About = lazy(() => import('./pages/About'))
 const Contact = lazy(() => import('./pages/Contact'))
-const ApproveReview = lazy(() => import('./pages/ApproveReview'))
 const AdminPanel = lazy(() => import('./pages/AdminPanel'))
 
 // Minimal loading fallback — invisible spinner that doesn't cause layout shift
@@ -31,7 +30,6 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
           </Route>
-          <Route path="/approve" element={<ApproveReview />} />
           <Route path="/admin" element={<AdminPanel />} />
         </Routes>
       </Suspense>

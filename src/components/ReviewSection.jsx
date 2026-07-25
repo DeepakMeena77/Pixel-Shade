@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { supabase } from "../config/supabase";
-import emailjs from "@emailjs/browser";
 import { Star, Send, CheckCircle } from "lucide-react";
 
 export default function ReviewSection() {
@@ -40,8 +39,8 @@ export default function ReviewSection() {
     setErrorMsg("");
 
     try {
-      // 1. Save to Supabase as "pending"
-      const { data, error } = await supabase
+      // Save to Supabase as "pending" — admin will approve/reject from the Admin Panel
+      const { error } = await supabase
         .from('reviews')
         .insert([
           {
@@ -50,37 +49,9 @@ export default function ReviewSection() {
             comment: formData.comment,
             status: 'pending'
           }
-        ])
-        .select();
+        ]);
 
       if (error) throw error;
-
-      const newReviewId = data[0].id;
-
-      // 2. Send email via EmailJS for approval
-      // The approval link will point to the site's /approve route
-      const approvalLink = `${window.location.origin}/approve?id=${newReviewId}`;
-      
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-      if (!publicKey) {
-          console.error("EmailJS public key is missing from environment variables.");
-          throw new Error("Missing EmailJS configuration");
-      }
-
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          to_email: "pixelshade.co@gmail.com",
-          reviewer_name: formData.name,
-          reviewer_rating: formData.rating,
-          reviewer_comment: formData.comment,
-          approval_link: approvalLink,
-        },
-        {
-          publicKey: publicKey,
-        }
-      );
 
       setSuccessMsg("Thank you! Your review has been submitted and is pending approval.");
       setFormData({ name: "", rating: 5, comment: "" });
