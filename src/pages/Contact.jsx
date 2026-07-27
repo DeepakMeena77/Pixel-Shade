@@ -8,7 +8,7 @@ const Contact = () => {
     useSEO({
         title: 'Contact Pixel Shade | Book a Free Consultation',
         description: 'Get in touch with Pixel Shade. Book a free strategy call or send us a message. We\'re ready to help elevate your brand\'s digital presence.',
-        canonical: 'https://pixelshade.co/contact',
+        path: '/contact',
     })
 
     const { contactFormSubmitted, setContactFormSubmitted } = useStore()

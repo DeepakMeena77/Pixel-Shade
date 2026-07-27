@@ -40,7 +40,7 @@ const About = () => {
     useSEO({
         title: 'About Pixel Shade | Futuristic Creative Agency',
         description: 'Meet Pixel Shade – a results-driven creative agency with 3+ years of experience and 20+ happy clients. We craft brands that define the future of your industry.',
-        canonical: 'https://pixelshade.co/about',
+        path: '/about',
     })
 
     return (

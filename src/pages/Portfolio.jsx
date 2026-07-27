@@ -9,7 +9,7 @@ const Portfolio = () => {
     useSEO({
         title: 'Portfolio | Pixel Shade – Creative Work & Case Studies',
         description: 'Explore Pixel Shade\'s portfolio of branding, social media content, and ad campaign projects. See how we\'ve helped 20+ businesses grow their digital presence.',
-        canonical: 'https://pixelshade.co/portfolio',
+        path: '/portfolio',
     })
 
     const [hoveredIndex, setHoveredIndex] = useState(null)

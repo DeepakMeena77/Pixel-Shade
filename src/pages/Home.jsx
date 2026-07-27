@@ -58,7 +58,7 @@ const Home = () => {
     useSEO({
         title: 'Pixel Shade | Creative Design & Social Media Marketing Agency',
         description: 'Pixel Shade is a futuristic creative agency specializing in branding, social media marketing, and ad campaigns. Trusted by 20+ businesses. Elevate your digital presence today.',
-        canonical: 'https://pixelshade.co/',
+        path: '/',
     })
 
     const [clients, setClients] = useState(FALLBACK_CLIENTS)

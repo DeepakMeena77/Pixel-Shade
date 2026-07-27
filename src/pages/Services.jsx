@@ -424,7 +424,7 @@ const Services = () => {
     useSEO({
         title: 'Services | Pixel Shade – Branding, SMM & Ad Campaigns',
         description: 'Explore Pixel Shade\'s full suite of creative services: futuristic branding, social media marketing, and high-converting ad campaigns tailored for your business.',
-        canonical: 'https://pixelshade.co/services',
+        path: '/services',
     })
 
     const [openReviews, setOpenReviews] = useState(null)
