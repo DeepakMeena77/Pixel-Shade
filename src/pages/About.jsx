@@ -4,6 +4,7 @@ import {
     Star, TrendingUp, Quote, Award, Users, Clock,
     Target, Layers, Zap, ArrowRight, Palette, BarChart2, MessageCircle
 } from 'lucide-react'
+import { useSEO } from '../hooks/useSEO'
 
 const stats = [
     { value: '20+', label: 'Clients Served', icon: Users },
@@ -36,6 +37,12 @@ const values = [
 ]
 
 const About = () => {
+    useSEO({
+        title: 'About Pixel Shade | Futuristic Creative Agency',
+        description: 'Meet Pixel Shade – a results-driven creative agency with 3+ years of experience and 20+ happy clients. We craft brands that define the future of your industry.',
+        canonical: 'https://pixelshade.co/about',
+    })
+
     return (
         <div className="bg-bg-light min-h-screen">
 

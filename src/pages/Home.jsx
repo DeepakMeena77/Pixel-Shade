@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Share2, MessageSquare, Rocket, ArrowRight, Zap, TrendingUp, Cpu, Maximize, Instagram, Search, Lightbulb, Palette, Send } from 'lucide-react'
 import ReviewSection from '../components/ReviewSection'
 import { supabase } from '../config/supabase'
+import { useSEO } from '../hooks/useSEO'
 
 // Fallback logos (used only if DB is empty / loading)
 const FALLBACK_CLIENTS = [
@@ -54,6 +55,12 @@ const processSteps = [
 ]
 
 const Home = () => {
+    useSEO({
+        title: 'Pixel Shade | Creative Design & Social Media Marketing Agency',
+        description: 'Pixel Shade is a futuristic creative agency specializing in branding, social media marketing, and ad campaigns. Trusted by 20+ businesses. Elevate your digital presence today.',
+        canonical: 'https://pixelshade.co/',
+    })
+
     const [clients, setClients] = useState(FALLBACK_CLIENTS)
 
     useEffect(() => {

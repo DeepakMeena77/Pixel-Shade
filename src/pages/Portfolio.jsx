@@ -2,9 +2,16 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Sparkles, ExternalLink, RefreshCw } from 'lucide-react'
 import { supabase } from '../config/supabase'
+import { useSEO } from '../hooks/useSEO'
 
 
 const Portfolio = () => {
+    useSEO({
+        title: 'Portfolio | Pixel Shade – Creative Work & Case Studies',
+        description: 'Explore Pixel Shade\'s portfolio of branding, social media content, and ad campaign projects. See how we\'ve helped 20+ businesses grow their digital presence.',
+        canonical: 'https://pixelshade.co/portfolio',
+    })
+
     const [hoveredIndex, setHoveredIndex] = useState(null)
     const [clients, setClients] = useState([])
     const [loading, setLoading] = useState(true)

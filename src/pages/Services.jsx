@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Paintbrush, Layers, Star, Send, CheckCircle, ChevronDown, Image as ImageIcon, X, ZoomIn, TrendingUp, Target, Users, BarChart2, Video, FileText, Headphones, Calendar, Search, Gift, Clock, Zap, Award, ArrowRight, RefreshCw } from 'lucide-react'
 import { supabase } from '../config/supabase'
 import emailjs from '@emailjs/browser'
+import { useSEO } from '../hooks/useSEO'
 
 // ─── Service Reviews Panel ────────────────────────────────────────────────────
 
@@ -420,6 +421,12 @@ function ServiceReviewPanel({ serviceId, serviceTitle }) {
 // ─── Services Page ────────────────────────────────────────────────────────────
 
 const Services = () => {
+    useSEO({
+        title: 'Services | Pixel Shade – Branding, SMM & Ad Campaigns',
+        description: 'Explore Pixel Shade\'s full suite of creative services: futuristic branding, social media marketing, and high-converting ad campaigns tailored for your business.',
+        canonical: 'https://pixelshade.co/services',
+    })
+
     const [openReviews, setOpenReviews] = useState(null)
     const [servicesList, setServicesList] = useState([])
     const [loadingServices, setLoadingServices] = useState(true)

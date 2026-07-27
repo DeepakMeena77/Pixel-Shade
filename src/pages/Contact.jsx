@@ -2,8 +2,15 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useStore } from '../store/useStore'
 import { CheckCircle2, Send, Mail, MapPin, Phone } from 'lucide-react'
+import { useSEO } from '../hooks/useSEO'
 
 const Contact = () => {
+    useSEO({
+        title: 'Contact Pixel Shade | Book a Free Consultation',
+        description: 'Get in touch with Pixel Shade. Book a free strategy call or send us a message. We\'re ready to help elevate your brand\'s digital presence.',
+        canonical: 'https://pixelshade.co/contact',
+    })
+
     const { contactFormSubmitted, setContactFormSubmitted } = useStore()
 
     const [formData, setFormData] = useState({
