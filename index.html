@@ -82,7 +82,158 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!--
+        STATIC SEO FALLBACK — visible to crawlers that cannot run JavaScript.
+        React will replace this content on page load. Do NOT remove.
+      -->
+      <style>
+        #root-seo-fallback { font-family: sans-serif; max-width: 960px; margin: 0 auto; padding: 24px 16px; color: #1a1a1a; }
+        #root-seo-fallback h1 { font-size: 2.2rem; font-weight: 800; color: #f97316; margin-bottom: 0.5rem; }
+        #root-seo-fallback h2 { font-size: 1.4rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.5rem; }
+        #root-seo-fallback h3 { font-size: 1.1rem; font-weight: 600; margin-top: 1.2rem; margin-bottom: 0.25rem; }
+        #root-seo-fallback p  { font-size: 1rem; line-height: 1.7; margin-bottom: 1rem; color: #444; }
+        #root-seo-fallback ul { padding-left: 1.5rem; margin-bottom: 1rem; color: #444; }
+        #root-seo-fallback li { margin-bottom: 0.4rem; line-height: 1.6; }
+        #root-seo-fallback nav a { margin-right: 1.5rem; color: #f97316; text-decoration: none; font-weight: 600; }
+        #root-seo-fallback .seo-tag { display: inline-block; background: #fff3e6; color: #f97316; border: 1px solid #f97316; border-radius: 999px; padding: 2px 12px; font-size: 0.78rem; font-weight: 700; margin-bottom: 1rem; }
+      </style>
+
+      <div id="root-seo-fallback" aria-hidden="false">
+
+        <!-- Navigation links — fixes "very few links" error -->
+        <nav aria-label="Main navigation">
+          <a href="/">Home</a>
+          <a href="/services">Services</a>
+          <a href="/portfolio">Portfolio</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+        </nav>
+
+        <header>
+          <span class="seo-tag">Future-Proof Design</span>
+          <!-- H1 — fixes "no H1 heading" error -->
+          <h1>Pixel Shade — Creative Design &amp; Social Media Marketing Agency</h1>
+          <p>
+            Pixel Shade is a futuristic creative agency that helps businesses build powerful digital identities.
+            We specialize in branding, social media marketing (SMM), and high-converting ad campaigns.
+            Trusted by 20+ businesses across multiple industries, we blend bold aesthetics with data-driven
+            strategies to make your brand impossible to ignore.
+          </p>
+        </header>
+
+        <main>
+
+          <!-- Services Section -->
+          <section>
+            <h2>Our Services</h2>
+            <p>
+              We offer a comprehensive range of creative and digital marketing services designed to grow your brand,
+              attract your ideal audience, and convert viewers into loyal customers.
+            </p>
+
+            <h3>Futuristic Branding &amp; Logo Design</h3>
+            <p>
+              Your brand identity is the first thing people notice. At Pixel Shade, we craft unique, custom logo
+              designs and complete brand identity systems from scratch — no templates, ever. From cyberpunk-inspired
+              visuals to clean minimal logos, every design is built around your business goals, target audience, and
+              market positioning. We deliver brand guidelines, color palettes, and typography systems to keep your
+              brand consistent across every touchpoint.
+            </p>
+
+            <h3>Social Media Marketing (SMM)</h3>
+            <p>
+              Our social media marketing strategies are built for aggressive, sustainable growth. We create
+              high-engagement visual content for Instagram, Facebook, and other platforms — from static posts and
+              carousels to reels and stories. We focus on viral content creation, community building, and
+              multi-platform strategy to grow your audience and drive real business results.
+            </p>
+
+            <h3>Ad Campaign Creative</h3>
+            <p>
+              Conversion-optimized creative sets designed to slice through the digital noise. We produce motion ad
+              creatives, A/B variation sets, and data-driven iterations that make your paid campaigns perform at
+              their peak. Whether you run Facebook Ads, Instagram Ads, or Google Display, we have the creative
+              firepower to maximize your return on ad spend.
+            </p>
+
+            <h3>Photography &amp; Video Editing</h3>
+            <p>
+              Professional product photography, event coverage, wedding photography, and video editing services
+              that bring your story to life. Our visual storytelling approach ensures every image and frame
+              communicates your brand's unique personality.
+            </p>
+          </section>
+
+          <!-- Process Section -->
+          <section>
+            <h2>Our Creative Process</h2>
+            <p>
+              We follow a structured 4-step creative workflow to deliver results efficiently and consistently.
+            </p>
+            <ul>
+              <li><strong>Discovery</strong> — We dive deep into your business goals, target audience, and competitive landscape to build a solid creative foundation.</li>
+              <li><strong>Strategy</strong> — From mood boards to messaging, we map out a visual strategy aligned with your brand identity and market positioning.</li>
+              <li><strong>Design</strong> — Every pixel is intentional. We produce high-fidelity assets that are visually striking and ready for every platform.</li>
+              <li><strong>Deliver</strong> — Final files handed over in all formats. We stay connected post-delivery to ensure everything performs as expected.</li>
+            </ul>
+          </section>
+
+          <!-- Why Choose Us Section -->
+          <section>
+            <h2>Why Choose Pixel Shade?</h2>
+            <ul>
+              <li><strong>20+ clients served</strong> across real estate, retail, food &amp; beverage, jewelry, and more.</li>
+              <li><strong>3+ years of experience</strong> in brand design and digital marketing.</li>
+              <li><strong>100% custom work</strong> — every design is built from scratch, never from templates.</li>
+              <li><strong>5-star average rating</strong> from our satisfied clients.</li>
+              <li><strong>Results-driven approach</strong> — every design decision is rooted in strategy, not just aesthetics.</li>
+              <li><strong>Fast turnaround</strong> — we respect your deadlines without compromising on quality.</li>
+            </ul>
+          </section>
+
+          <!-- About Section -->
+          <section>
+            <h2>About Pixel Shade</h2>
+            <p>
+              Pixel Shade was founded with a single mission: to bring futuristic, high-impact design to businesses
+              of all sizes. We believe that great design is not just about looking good — it's about communicating
+              value, building trust, and driving growth. Our team combines creative instinct with market insights
+              to produce work that stands out and stays relevant.
+            </p>
+            <p>
+              We've had the privilege of working with businesses like OSO Real Estates, Vivah Utshav, VL Boutique,
+              AmlaCubes, MR Realty Talks, House of Maha, Divya Jewelers, and many more. Each project is a new
+              opportunity to push creative boundaries and deliver real, measurable results.
+            </p>
+          </section>
+
+          <!-- Contact Section -->
+          <section>
+            <h2>Get in Touch</h2>
+            <p>
+              Ready to elevate your brand's digital presence? We'd love to hear from you.
+              Book a free strategy call or send us a message — we're available now and ready to start your project.
+            </p>
+            <ul>
+              <li>Email: <a href="mailto:pixelshade.co@gmail.com">pixelshade.co@gmail.com</a></li>
+              <li>Instagram: <a href="https://www.instagram.com/pixelshade.co" rel="noopener noreferrer">@pixelshade.co</a></li>
+              <li>Facebook: <a href="https://www.facebook.com/share/1BprmjqVpd/" rel="noopener noreferrer">Pixel Shade on Facebook</a></li>
+            </ul>
+            <p>
+              <a href="/contact">Contact us today</a> and let's build a brand that defines the future of your industry.
+            </p>
+          </section>
+
+        </main>
+
+        <footer>
+          <p>&copy; 2024 Pixel Shade. All rights reserved. | <a href="/services">Services</a> | <a href="/portfolio">Portfolio</a> | <a href="/about">About</a> | <a href="/contact">Contact</a></p>
+        </footer>
+
+      </div>
+      <!-- END STATIC SEO FALLBACK -->
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
